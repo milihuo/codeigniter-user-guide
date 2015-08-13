@@ -36,7 +36,7 @@ $application_folder 和 $view_folder 三个变量的值，最好设置成绝对�
 
 以上就是全部安装过程！
 
-如果你刚刚接触 CodeIgniter，请阅读用户指南的:doc:`开始 <../overview/getting_started>`部分，
+如果你刚刚接触 CodeIgniter，请阅读用户指南的:doc:`开始 <../overview/getting_started>` 部分，
 学习如何构造动态的 PHP 应用，开始享受吧！
 
 .. toctree::
