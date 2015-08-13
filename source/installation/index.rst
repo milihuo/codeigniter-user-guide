@@ -31,12 +31,11 @@ $application_folder 和 $view_folder 三个变量的值，最好设置成绝对�
 
 在生产环境还要额外再多一步，就是禁用 PHP 错误报告以及所有其他仅在
 开发环境使用的功能。在 CodeIgniter 中，可以通过设置 ENVIRONMENT
-常量来做到这一点，这在:doc:`安全 <../general/security>`
-这篇指南中有着更详细的介绍。
+常量来做到这一点，这在 :doc:`安全 <../general/security>` 这篇指南中有着更详细的介绍。
 
 以上就是全部安装过程！
 
-如果你刚刚接触 CodeIgniter，请阅读用户指南的:doc:`开始 <../overview/getting_started>` 部分，
+如果你刚刚接触 CodeIgniter，请阅读用户指南的 :doc:`开始 <../overview/getting_started>` 部分，
 学习如何构造动态的 PHP 应用，开始享受吧！
 
 .. toctree::
