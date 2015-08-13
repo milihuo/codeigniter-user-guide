@@ -27,7 +27,7 @@
 
 移动完目录之后，打开 index.php 文件，分别设置好 $system_path、
 $application_folder 和 $view_folder 三个变量的值，最好设置成绝对路径，
-譬如：'/www/MyUser/system' 。
+譬如：'/www/MyUser/system'。
 
 在生产环境还要额外再多一步，就是禁用 PHP 错误报告以及所有其他仅在
 开发环境使用的功能。在 CodeIgniter 中，可以通过设置 ENVIRONMENT

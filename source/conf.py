@@ -134,7 +134,7 @@ html_last_updated_fmt = '%Y-%m-%d'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+html_use_smartypants = False
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
@@ -264,5 +264,5 @@ epub_copyright = u'2014 - 2015, 不列颠哥伦比亚理工学院'
 
 # http://sphinx-doc.org/config.html#confval-html_context
 html_context = {
-    'ga_tracking_id' : ''
+    'ga_tracking_id' : 'UA-272152-3'
 }
