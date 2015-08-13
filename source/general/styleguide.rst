@@ -6,7 +6,7 @@ PHP 开发规范
 CodeIgniter 的开发遵循本页所描述的编码规范，我们也推荐在你自己的应用程序开发中使用
 这些规范，但不做强求。
 
-.. contents:: Table of Contents
+.. contents:: 目录
 
 文件格式
 ===========
