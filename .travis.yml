@@ -5,7 +5,7 @@ python:
 sudo: required
 
 install:
-  - apt-get install texlive-latex-base
+  - sudo apt-get install texlive-latex-base
   - pip install "Sphinx==1.2.3"
   - pip install "sphinxcontrib-phpdomain"
   - cd cilexer
