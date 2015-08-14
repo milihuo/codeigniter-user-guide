@@ -3,28 +3,25 @@ python:
   - "2.7"
 
 cache: 
-  - apt
+#  - apt
   - pip
 
 sudo: false
 
-addons:
-  apt:
-    packages:
-    - texlive-latex-recommended
-    - texlive-latex-extra
-    - texlive-fonts-recommended
+# addons:
+#   apt:
+#     packages:
+#     - texlive-latex-recommended
+#     - texlive-latex-extra
+#     - texlive-fonts-recommended
 
 install:
   - pip install "Sphinx==1.2.3"
   - pip install "sphinxcontrib-phpdomain"
-  - cd cilexer
-  - python setup.py install
-  - cd ..
+  - cd cilexer && python setup.py install && cd ..
 
 script:
   - make html
-  - make latexpdf
 
 # Flags used here, not in `make html`:
 #  -n   Run in nit-picky mode. Currently, this generates warnings for all missing references.
