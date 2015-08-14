@@ -3,9 +3,9 @@ python:
   - "2.7"
 # command to install dependencies
 install:
-  - pip install --upgrade pip
-  - pip install -q -r requirements.txt
-  - python setup.py -q install
+#  - pip install --upgrade pip
+  - pip install "Sphinx==1.2.3"
+#  - python setup.py -q install
 # command to run tests
 script: make html
 # Flags used here, not in `make html`:
