@@ -6,7 +6,7 @@ install:
 #  - pip install --upgrade pip
   - pip install "Sphinx==1.2.3"
   - pip install "sphinxcontrib-phpdomain"
-  - python setup.py install
+  - python ./cilexer/setup.py install
 # command to run tests
 script: make html
 # Flags used here, not in `make html`:
