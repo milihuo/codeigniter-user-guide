@@ -11,7 +11,7 @@ sudo: false
 addons:
   apt:
     packages:
-    - texlive-latex-base
+    - texlive-latex-recommended
 
 install:
   - pip install "Sphinx==1.2.3"
