@@ -12,6 +12,7 @@ addons:
   apt:
     packages:
     - texlive-latex-recommended
+    - texlive-latex-extra
 
 install:
   - pip install "Sphinx==1.2.3"
