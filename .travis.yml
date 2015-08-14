@@ -2,10 +2,14 @@ language: python
 python:
   - "2.7"
 
-sudo: required
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - texlive-latex-base
 
 install:
-  - sudo apt-get install texlive-latex-base
   - pip install "Sphinx==1.2.3"
   - pip install "sphinxcontrib-phpdomain"
   - cd cilexer
