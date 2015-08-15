@@ -147,4 +147,4 @@
 		$str = parse_smileys($str, 'http://example.com/images/smileys/');
 		echo $str;
 
-.. |smile!| image:: ../images/smile.gif
+.. |smile!| image:: ../images/smile.png

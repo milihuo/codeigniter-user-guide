@@ -189,6 +189,31 @@ latex_documents = [
    u'不列颠哥伦比亚理工学院', 'manual'),
 ]
 
+latex_elements = {
+# The paper size ('letterpaper' or 'a4paper').
+'papersize': 'a4paper',
+
+# The font size ('10pt', '11pt' or '12pt').
+'pointsize': '12pt',
+
+'classoptions': ',english',
+'inputenc': '',
+'utf8extra': '',
+
+# Additional stuff for the LaTeX preamble.
+'preamble': '''
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\setCJKmainfont[BoldFont=STHeiti, ItalicFont=STKaiti]{STSong}
+\setCJKmonofont[Scale=0.9]{Monaco}
+\setCJKfamilyfont{song}[BoldFont=STSong]{STSong}
+\setCJKfamilyfont{sf}[BoldFont=STSong]{STSong}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+'''
+}
+
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #latex_logo = None

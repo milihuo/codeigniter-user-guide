@@ -14,4 +14,4 @@
 #. 最后一步，渲染视图并发送至浏览器，如果开启了缓存，视图被会先缓存起来用于
    后续的请求。
 
-.. |CodeIgniter 程序流程| image:: ../images/appflowchart.gif
+.. |CodeIgniter 程序流程| image:: ../images/appflowchart.png
