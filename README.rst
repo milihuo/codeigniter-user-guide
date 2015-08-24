@@ -2,20 +2,14 @@
     :target: https://travis-ci.org/CodeIgniter-Chinese/codeigniter-user-guide
 
 ########################
-CodeIgniter 3.0 中文文档
+CodeIgniter 3.0 中文手册
 ########################
 
-这里是 CodeIgniter 3.0.0 的中文文档，翻译自 CodeIgniter
-`官方的英文版本 <http://www.codeigniter.com/user_guide/index.html>`_ ，
-并参考了 `CodeIgniter 中国 <http://codeigniter.org.cn/>`_ 提供的
-`CodeIgniter 2.2.2 中文手册 <http://codeigniter.org.cn/user_guide/index.html>`_ 。
+这里是 CodeIgniter 3.0 的中文手册，翻译自 CodeIgniter `官方的英文手册 <http://www.codeigniter.com/user_guide/index.html>`_ ，
+以 `aneasystone <http://www.aneasystone.com/>`_ 翻译的手册为基础制作。
 
-文档中的大部分内容我都进行了重新整理和翻译，我并没有对原文进行逐字逐句的推敲，
-有些不好翻译的地方使用了一些自己组织的语言进行润色，力求做到语句通顺，易于理解。
-
-鉴于个人能力所限，翻译之中难免犯错，欢迎大家批评指正。
-你可以在 Github 上直接提交 Issues ，或者 Fork 我的项目作出修改然后向我提交 Pull Request ，
-我会尽快修复文档中的错误。
+如果想修改或翻译本手册，请在 Github 上提交 Issues ，或者 Fork 本项目作出修改，然后提交 Pull Request ，
+感谢大家为手册做出的贡献。
 
 ********
 安装步骤
