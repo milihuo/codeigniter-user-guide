@@ -121,7 +121,7 @@
 	echo $this->dbutil->csv_from_result($query, $delimiter, $newline, $enclosure);
 
 .. important:: 该方法并不写入 CSV 文档，它只是简单的返回 CSV 内容，如果你需要写入到文件中，
-	你可以使用 :doc:`文件辅助库 <../helpers/file_helper>` 。
+	你可以使用 :doc:`文件辅助函数 <../helpers/file_helper>` 。
 
 将查询结果导出到 XML 文档
 ========================================
@@ -142,7 +142,7 @@
 	echo $this->dbutil->xml_from_result($query, $config);
 
 .. important:: 该方法并不写入 XML 文档，它只是简单的返回 XML 内容，如果你需要写入到文件中，
-	你可以使用 :doc:`文件辅助库 <../helpers/file_helper>` 。
+	你可以使用 :doc:`文件辅助函数 <../helpers/file_helper>` 。
 
 ********************
 备份你的数据库

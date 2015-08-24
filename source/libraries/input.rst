@@ -211,7 +211,7 @@ CodeIgniter 为你解决了这个问题，你只需要使用下面的 ``$raw_inp
 
 			$this->input->cookie(array('some_cookie', 'some_cookie2'));
 
-		.. note:: 和 :doc:`Cookie 辅助库 <../helpers/cookie_helper>` 中的 :php:func:`get_cookie()`
+		.. note:: 和 :doc:`Cookie 辅助函数 <../helpers/cookie_helper>` 中的 :php:func:`get_cookie()`
 			函数不同的是，这个方法不会根据 ``$config['cookie_prefix']`` 来添加前缀。
 
 	.. php:method:: server($index[, $xss_clean = NULL])

@@ -256,7 +256,7 @@
 			echo $this->calendar->get_total_days(2, 2012);
 			// 29
 
-		.. note:: 该方法是 :doc:`日期辅助库 <../helpers/date_helper>` 的 :php:func:`days_in_month()` 函数的别名。
+		.. note:: 该方法是 :doc:`日期辅助函数 <../helpers/date_helper>` 的 :php:func:`days_in_month()` 函数的别名。
 
 	.. php:method:: default_template()
 

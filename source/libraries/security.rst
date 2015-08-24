@@ -50,7 +50,7 @@ XSS 攻击, 这对于保证文件上传的安全非常有用。当此参数被�
 
 	$config['csrf_protection'] = TRUE;
 
-如果你使用 :doc:`表单辅助库 <../helpers/form_helper>` ，:func:`form_open()`
+如果你使用 :doc:`表单辅助函数 <../helpers/form_helper>` ，:func:`form_open()`
 函数将会自动地在你的表单中插入一个隐藏的 CSRF 字段。如果没有插入这个字段，
 你可以手工调用 ``get_csrf_token_name()`` 和 ``get_csrf_hash()`` 这两个函数。
 

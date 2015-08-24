@@ -3,7 +3,7 @@
 ############
 
 加载器，顾名思义，是用于加载元素的，加载的元素可以是库（类），:doc:`视图文件 <../general/views>` ，
-:doc:`驱动器 <../general/drivers>` ，:doc:`辅助库 <../general/helpers>` ，
+:doc:`驱动器 <../general/drivers>` ，:doc:`辅助函数 <../general/helpers>` ，
 :doc:`模型 <../general/models>` 或其他你自己的文件。
 
 .. note:: 该类由系统自动加载，你无需手工加载。
@@ -312,7 +312,7 @@
 		:returns:	CI_Loader instance (method chaining)
 		:rtype:	CI_Loader
 
-		该方法用于加载辅助库文件，其中 file_name 为加载的文件名，不带 _helper.php 后缀。
+		该方法用于加载辅助函数文件，其中 file_name 为加载的文件名，不带 _helper.php 后缀。
 
 	.. php:method:: file($path[, $return = FALSE])
 

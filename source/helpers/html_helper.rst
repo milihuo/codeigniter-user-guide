@@ -1,8 +1,8 @@
 ###############
-HTML 辅助库
+HTML 辅助函数
 ###############
 
-HTML 辅助库文件包含了用于处理 HTML 的一些函数。
+HTML 辅助函数文件包含了用于处理 HTML 的一些函数。
 
 .. contents::
   :local:
@@ -11,17 +11,17 @@ HTML 辅助库文件包含了用于处理 HTML 的一些函数。
 
   <div class="custom-index container"></div>
 
-加载辅助库
+加载辅助函数
 ===================
 
-该辅助库通过下面的代码加载::
+该辅助函数通过下面的代码加载::
 
 	$this->load->helper('html');
 
 可用函数
 ===================
 
-该辅助库有下列可用函数：
+该辅助函数有下列可用函数：
 
 .. php:function:: heading([$data = ''[, $h = '1'[, $attributes = '']]])
 

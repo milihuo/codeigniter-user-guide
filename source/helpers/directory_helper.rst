@@ -1,8 +1,8 @@
 ################
-目录辅助库
+目录辅助函数
 ################
 
-目录辅助库文件包含了一些帮助你处理目录的函数。
+目录辅助函数文件包含了一些帮助你处理目录的函数。
 
 .. contents::
   :local:
@@ -11,17 +11,17 @@
 
   <div class="custom-index container"></div>
 
-加载辅助库
+加载辅助函数
 ===================
 
-该辅助库通过下面的代码加载::
+该辅助函数通过下面的代码加载::
 
 	$this->load->helper('directory');
 
 可用函数
 ===================
 
-该辅助库有下列可用函数：
+该辅助函数有下列可用函数：
 
 .. php:function:: directory_map($source_dir[, $directory_depth = 0[, $hidden = FALSE]])
 

@@ -195,7 +195,7 @@ CodeIgniter 默认有一个主要的配置文件，位于 application/config/con
 
 		该方法返回你的网站的 URL ，包括你在配置文件中设置的 "index" 值。
 
-		这个方法通常通过 :doc:`URL 辅助库 </helpers/url_helper>` 中函数来访问。
+		这个方法通常通过 :doc:`URL 辅助函数 </helpers/url_helper>` 中函数来访问。
 
 	.. php:method:: base_url()
 
@@ -204,7 +204,7 @@ CodeIgniter 默认有一个主要的配置文件，位于 application/config/con
 
 		该方法返回你的网站的根 URL ，你可以在后面加上样式和图片的路径来访问它们。
 
-		这个方法通常通过 :doc:`URL 辅助库 </helpers/url_helper>` 中函数来访问。
+		这个方法通常通过 :doc:`URL 辅助函数 </helpers/url_helper>` 中函数来访问。
 
 	.. php:method:: system_url()
 

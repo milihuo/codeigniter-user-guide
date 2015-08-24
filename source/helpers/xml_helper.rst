@@ -1,8 +1,8 @@
 ############
-XML 辅助库
+XML 辅助函数
 ############
 
-XML 辅助库文件包含了用于处理 XML 数据的一些函数。
+XML 辅助函数文件包含了用于处理 XML 数据的一些函数。
 
 .. contents::
   :local:
@@ -11,17 +11,17 @@ XML 辅助库文件包含了用于处理 XML 数据的一些函数。
 
   <div class="custom-index container"></div>
 
-加载辅助库
+加载辅助函数
 ===================
 
-该辅助库通过下面的代码加载::
+该辅助函数通过下面的代码加载::
 
 	$this->load->helper('xml');
 
 可用函数
 ===================
 
-该辅助库有下列可用函数：
+该辅助函数有下列可用函数：
 
 .. php:function:: xml_convert($str[, $protect_all = FALSE])
 

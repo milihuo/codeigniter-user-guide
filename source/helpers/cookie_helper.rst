@@ -1,8 +1,8 @@
 #############
-Cookie 辅助库
+Cookie 辅助函数
 #############
 
-Cookie 辅助库文件包含了一些帮助你处理 Cookie 的函数。
+Cookie 辅助函数文件包含了一些帮助你处理 Cookie 的函数。
 
 .. contents::
   :local:
@@ -11,17 +11,17 @@ Cookie 辅助库文件包含了一些帮助你处理 Cookie 的函数。
 
   <div class="custom-index container"></div>
 
-加载辅助库
+加载辅助函数
 ===================
 
-该辅助库通过下面的代码加载::
+该辅助函数通过下面的代码加载::
 
 	$this->load->helper('cookie');
 
 可用函数
 ===================
 
-该辅助库有下列可用函数：
+该辅助函数有下列可用函数：
 
 .. php:function:: set_cookie($name[, $value = ''[, $expire = ''[, $domain = ''[, $path = '/'[, $prefix = ''[, $secure = FALSE[, $httponly = FALSE]]]]]]]])
 

@@ -85,7 +85,7 @@ CodeIgniter 用户指南
 	database/index
 
 ****************
-辅助库参考
+辅助函数参考
 ****************
 
 .. toctree::

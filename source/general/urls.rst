@@ -20,7 +20,7 @@ URI 分段
 #. 第二段表示要调用的类中的 **函数** 或 **方法** ；
 #. 第三段以及后面的段代表传给控制器的参数，如 ID 或其他任何变量；
 
-:doc:`URI 类 <../libraries/uri>` 和 :doc:`URL 辅助库 <../helpers/url_helper>`
+:doc:`URI 类 <../libraries/uri>` 和 :doc:`URL 辅助函数 <../helpers/url_helper>`
 包含了一些函数可以让你更容易的处理 URI 数据，另外，你的 URL 可以通过 
 :doc:`URI 路由 <routing>` 进行重定向从而得到更大的灵活性。
 
@@ -80,5 +80,5 @@ trigger 关键字来访问你的控制器和方法::
 	index.php?c=controller&m=method
 
 .. note:: 如果你使用查询字符串格式的 URL，你就必须自己手工构造 URL 而不能使用 URL 
-	辅助库了（以及其他生成 URL 相关的库，譬如表单辅助库），这是由于这些库只能处理
+	辅助函数了（以及其他生成 URL 相关的库，譬如表单辅助函数），这是由于这些库只能处理
 	分段格式的 URL 。
