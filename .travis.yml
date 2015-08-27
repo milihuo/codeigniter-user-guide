@@ -20,6 +20,14 @@ install:
   - pip install "sphinxcontrib-phpdomain"
   - cd cilexer && python setup.py install && cd ..
 
+deploy:
+  provider: releases
+  api_key: "867d968ccc97ab5133e26ae80c0297f32eb63708"
+  file: "./build/html/*"
+  skip_cleanup: true
+  on:
+    tags: true
+
 script:
   - make html
 
