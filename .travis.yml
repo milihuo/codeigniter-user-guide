@@ -5,7 +5,7 @@ python:
 env:
   global:
   - GH_REF: github.com/CodeIgniter-Chinese/codeigniter-user-guide.git
-  - secure: MH65HgNW1DUUzVc9ZJcV28dvn0Kn5w2kOnqpDC4wu9KvhG9s+GHNAN+l528ycOvQ+p4qG19hAVgM/GOp4w1ziXFq7HROf6SqAfrLx/rWsmFHpck43Z75F2LzGzSTlW+5XYdjG31q1z7xUq4zWW3K5Z9VOdAW0MqxlHpaA9Mmxs32q/cyUo1OVOdd4/fQYavvXqcEi9z6FULQLlJhm2yOP5sGOPY5$
+  - secure: QXITDZC1Qj5WrUAUJvoM2UtzGhDWZA3pWdCL55KKfEoKF0H0HEmLWu3qhKfZzTbKTFwZNm/SPSjlPiJN56w4xzo2RPWH4tRt2BAGxRZiZGRKW//dL5KCNDpKGhtBOz2J36INq2mGMM1irfjO+1v+C54BvwPRunIgy/zya3pV0neWRHrOmZdzh6RPdEyku85DDnMbIT9EBk5X659OeMqNMpyQCbO+$
 
 cache: 
 #  - apt
