@@ -1,9 +1,11 @@
 #!/bin/bash
 
-cd build/html
-git init
-git config user.name "Travis CI"
-git config user.email "hex@codeigniter.org.cn"
-git add .
+git config --global user.name "CodeIgniter"
+git config --global user.email "hex@codeigniter.org.cn"
+git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/CodeIgniter-Chinese/codeigniter-user-guide.git gh-pages
+cd gh-pages
+cp -Rf ./build/html/* .
+git add -f .
 git commit -m "Deploy to GitHub Pages"
-git push "https://${GH_TOKEN}@github.com/CodeIgniter-Chinese/codeigniter-user-guide.git" master:gh-pages
+git push -fq origin gh-pages
+echo -e "Done\n"
