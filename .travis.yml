@@ -5,7 +5,7 @@ python:
 env:
   global:
   - GH_REF: github.com/CodeIgniter-Chinese/codeigniter-user-guide.git
-  - secure: Uxi+sxVr/em2csV+smlFCAiCngsrIAUJkczaayQ8wnbPwwPgZlwReoCQQCWAly8fUPunRka7hdWzAJHkiyxI1EDxK16kfJ+8bIE2dVc3coC6sm/Sq0PQvTU+arYYAnFfFDGfFZKKtlVI9tf7JH2s2mtOqaMuZ3ptZB8hbg2vO2CM6ap+osJlqZPdolAvcOqh5ClwsoaUUMSzmkgT6zSXgBLrVWA+bLdVMkBD6GURbbHqpLYf/SaNzBR4JrWV5N24KL3J8k34wY0AoQuepqdDcFPzJ6LN0mpWs2aM67WXwPoxsu9RK89KpBL2R0anx/79ts449QdFlMzbbFkpi+6DtnoOU2/3j2h2Q7RA1ACc5b7MDeFtKRi6K5HgPu9XyxDU6p1tocicQdX91OqPUYVtoRFh1sfO4wj7UAO9DGTqeH+jM/6T/UyaflMM78Wm5w5iKhNYeuDrDqqVAOmhYp2QHXhR0MEqs/CtjM/E+wszGZ2FzUoFzUzJLb6gf3jW6q7ncDz83nZ8M9lsbBxW0BOAm4AcYWCYfE09HCxaOFh2SLWbuaE7+amgtHyUSvxsYr1CwkG6bhiMfQ7agwoLbY6wnqRovtBwzAqIzvDAOh+ds6jFC3wdxKSWaw+MZNjKtMkzoM8D0MEP1AIUAtjAIj4ocrlvEs1G6/z9Xm0ahXIRScs=
+  - secure: "Uxi+sxVr/em2csV+smlFCAiCngsrIAUJkczaayQ8wnbPwwPgZlwReoCQQCWAly8fUPunRka7hdWzAJHkiyxI1EDxK16kfJ+8bIE2dVc3coC6sm/Sq0PQvTU+arYYAnFfFDGfFZKKtlVI9tf7JH2s2mtOqaMuZ3ptZB8hbg2vO2CM6ap+osJlqZPdolAvcOqh5ClwsoaUUMSzmkgT6zSXgBLrVWA+bLdVMkBD6GURbbHqpLYf/SaNzBR4JrWV5N24KL3J8k34wY0AoQuepqdDcFPzJ6LN0mpWs2aM67WXwPoxsu9RK89KpBL2R0anx/79ts449QdFlMzbbFkpi+6DtnoOU2/3j2h2Q7RA1ACc5b7MDeFtKRi6K5HgPu9XyxDU6p1tocicQdX91OqPUYVtoRFh1sfO4wj7UAO9DGTqeH+jM/6T/UyaflMM78Wm5w5iKhNYeuDrDqqVAOmhYp2QHXhR0MEqs/CtjM/E+wszGZ2FzUoFzUzJLb6gf3jW6q7ncDz83nZ8M9lsbBxW0BOAm4AcYWCYfE09HCxaOFh2SLWbuaE7+amgtHyUSvxsYr1CwkG6bhiMfQ7agwoLbY6wnqRovtBwzAqIzvDAOh+ds6jFC3wdxKSWaw+MZNjKtMkzoM8D0MEP1AIUAtjAIj4ocrlvEs1G6/z9Xm0ahXIRScs="
 
 cache: 
 #  - apt
@@ -25,18 +25,19 @@ install:
   - pip install "sphinxcontrib-phpdomain"
   - cd cilexer && python setup.py install && cd ..
 
-deploy:
-  provider: releases
-  api_key:
-    secure: Uxi+sxVr/em2csV+smlFCAiCngsrIAUJkczaayQ8wnbPwwPgZlwReoCQQCWAly8fUPunRka7hdWzAJHkiyxI1EDxK16kfJ+8bIE2dVc3coC6sm/Sq0PQvTU+arYYAnFfFDGfFZKKtlVI9tf7JH2s2mtOqaMuZ3ptZB8hbg2vO2CM6ap+osJlqZPdolAvcOqh5ClwsoaUUMSzmkgT6zSXgBLrVWA+bLdVMkBD6GURbbHqpLYf/SaNzBR4JrWV5N24KL3J8k34wY0AoQuepqdDcFPzJ6LN0mpWs2aM67WXwPoxsu9RK89KpBL2R0anx/79ts449QdFlMzbbFkpi+6DtnoOU2/3j2h2Q7RA1ACc5b7MDeFtKRi6K5HgPu9XyxDU6p1tocicQdX91OqPUYVtoRFh1sfO4wj7UAO9DGTqeH+jM/6T/UyaflMM78Wm5w5iKhNYeuDrDqqVAOmhYp2QHXhR0MEqs/CtjM/E+wszGZ2FzUoFzUzJLb6gf3jW6q7ncDz83nZ8M9lsbBxW0BOAm4AcYWCYfE09HCxaOFh2SLWbuaE7+amgtHyUSvxsYr1CwkG6bhiMfQ7agwoLbY6wnqRovtBwzAqIzvDAOh+ds6jFC3wdxKSWaw+MZNjKtMkzoM8D0MEP1AIUAtjAIj4ocrlvEs1G6/z9Xm0ahXIRScs=
-  file: "./build/html/*"
-  skip_cleanup: true
-  on:
-    tags: false
-
 script:
   - make html
 
 # Flags used here, not in `make html`:
 #  -n   Run in nit-picky mode. Currently, this generates warnings for all missing references.
 #  -W   Turn warnings into errors. This means that the build stops at the first warning and sphinx-build exits with exit status 1.
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "Uxi+sxVr/em2csV+smlFCAiCngsrIAUJkczaayQ8wnbPwwPgZlwReoCQQCWAly8fUPunRka7hdWzAJHkiyxI1EDxK16kfJ+8bIE2dVc3coC6sm/Sq0PQvTU+arYYAnFfFDGfFZKKtlVI9tf7JH2s2mtOqaMuZ3ptZB8hbg2vO2CM6ap+osJlqZPdolAvcOqh5ClwsoaUUMSzmkgT6zSXgBLrVWA+bLdVMkBD6GURbbHqpLYf/SaNzBR4JrWV5N24KL3J8k34wY0AoQuepqdDcFPzJ6LN0mpWs2aM67WXwPoxsu9RK89KpBL2R0anx/79ts449QdFlMzbbFkpi+6DtnoOU2/3j2h2Q7RA1ACc5b7MDeFtKRi6K5HgPu9XyxDU6p1tocicQdX91OqPUYVtoRFh1sfO4wj7UAO9DGTqeH+jM/6T/UyaflMM78Wm5w5iKhNYeuDrDqqVAOmhYp2QHXhR0MEqs/CtjM/E+wszGZ2FzUoFzUzJLb6gf3jW6q7ncDz83nZ8M9lsbBxW0BOAm4AcYWCYfE09HCxaOFh2SLWbuaE7+amgtHyUSvxsYr1CwkG6bhiMfQ7agwoLbY6wnqRovtBwzAqIzvDAOh+ds6jFC3wdxKSWaw+MZNjKtMkzoM8D0MEP1AIUAtjAIj4ocrlvEs1G6/z9Xm0ahXIRScs="
+  file: "./build/html/index.html"
+  skip_cleanup: true
+  on:
+    repo: CodeIgniter-Chinese/codeigniter-user-guide
+    tags: true
