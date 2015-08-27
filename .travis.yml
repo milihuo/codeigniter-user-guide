@@ -27,17 +27,12 @@ install:
 
 script:
   - make html
-
+  - cd build/html
+  - git config user.name "Travis CI"
+  - git config user.email "hex@codeigniter.org.cn"
+  - git add .
+  - git commit -m "Deploy to GitHub Pages"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
 # Flags used here, not in `make html`:
 #  -n   Run in nit-picky mode. Currently, this generates warnings for all missing references.
 #  -W   Turn warnings into errors. This means that the build stops at the first warning and sphinx-build exits with exit status 1.
-
-deploy:
-  provider: releases
-  api_key:
-    secure: MH65HgNW1DUUzVc9ZJcV28dvn0Kn5w2kOnqpDC4wu9KvhG9s+GHNAN+l528ycOvQ+p4qG19hAVgM/GOp4w1ziXFq7HROf6SqAfrLx/rWsmFHpck43Z75F2LzGzSTlW+5XYdjG31q1z7xUq4zWW3K5Z9VOdAW0MqxlHpaA9Mmxs32q/cyUo1OVOdd4/fQYavvXqcEi9z6FULQLlJhm2yOP5sGOPY5$
-  file: "./build/html/*"
-  on:
-    repo: CodeIgniter-Chinese/codeigniter-user-guide
-    tags: false
-    all_branches: true
