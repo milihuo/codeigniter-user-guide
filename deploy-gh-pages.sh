@@ -7,5 +7,5 @@ cd gh-pages
 cp -Rf ../build/html/* .
 git add -f .
 git commit -m "Deploy to GitHub Pages"
-git push -fq origin gh-pages
+git push -f origin gh-pages
 echo -e "Done\n"
