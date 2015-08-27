@@ -4,7 +4,8 @@ python:
 
 env:
   global:
-    secure: rLGHJqNPSYi9tyAXQIIUyiETbi8USNzsKeIudMOXUt42xjphnyn8rfPow0pGq1QMnr0XRRtTSuhNaSHHusqhIgjovCY/RabzdmUYl1ZeZ6x6Z5bwjtecm/P1IJUxX/Sy7ps+x2xugfeDU6vgHT9apActJJSYZHwYWBj/AW7IErCkWE3sgwn9IPpGqqbLK0mVGBvRlBP3wssuzBt7PiEvrZ+MKSgBNiYb8zP4A9D7GDDl7VPHC/ggkhzRZBCT+uAFH3yFRo38jNU9+MkUkMIwKjWJRrPwOz7epwjRIF2Ch5IMzkokB45QVZgO9ZfbyyvkTrG/381bzeVMTjhEImsvjfJMmrip+9QaRx5pfqaWcIPrRTl9oegUFEIweR9Edx24yAqVXvuMl6v5nNOiZcGcO6RJx5+341la/MogN8HWtkBtU++Ya4bHJPclj2hAmNYXmR+F/iKFrPz6oc7UCbF5+NHEPTvW/3wdPI/XAvCsI1x+8PvLI22Pjcy/7u4odsXzEzl1gDwUunVMW0gG2OgbsDx4Ma3zJmJK6En0vJmRgtIbaqZcwH5DsHNV0ituxxuALRG9aC8JwXj5CtDwOwoupiEs2GYkg6j+fgzCHiWi27LhJXWtPXY4pR1aX3rtgjsdVf/jWqmLjsVa6RGDsqJhcXenO+nhcoUNcvpZS0gozLw=
+    - GH_REF: github.com/CodeIgniter-Chinese/codeigniter-user-guide.git
+    - secure: rLGHJqNPSYi9tyAXQIIUyiETbi8USNzsKeIudMOXUt42xjphnyn8rfPow0pGq1QMnr0XRRtTSuhNaSHHusqhIgjovCY/RabzdmUYl1ZeZ6x6Z5bwjtecm/P1IJUxX/Sy7ps+x2xugfeDU6vgHT9apActJJSYZHwYWBj/AW7IErCkWE3sgwn9IPpGqqbLK0mVGBvRlBP3wssuzBt7PiEvrZ+MKSgBNiYb8zP4A9D7GDDl7VPHC/ggkhzRZBCT+uAFH3yFRo38jNU9+MkUkMIwKjWJRrPwOz7epwjRIF2Ch5IMzkokB45QVZgO9ZfbyyvkTrG/381bzeVMTjhEImsvjfJMmrip+9QaRx5pfqaWcIPrRTl9oegUFEIweR9Edx24yAqVXvuMl6v5nNOiZcGcO6RJx5+341la/MogN8HWtkBtU++Ya4bHJPclj2hAmNYXmR+F/iKFrPz6oc7UCbF5+NHEPTvW/3wdPI/XAvCsI1x+8PvLI22Pjcy/7u4odsXzEzl1gDwUunVMW0gG2OgbsDx4Ma3zJmJK6En0vJmRgtIbaqZcwH5DsHNV0ituxxuALRG9aC8JwXj5CtDwOwoupiEs2GYkg6j+fgzCHiWi27LhJXWtPXY4pR1aX3rtgjsdVf/jWqmLjsVa6RGDsqJhcXenO+nhcoUNcvpZS0gozLw=
 
 cache: 
 #  - apt
@@ -26,26 +27,8 @@ install:
 
 script:
   - make html
-  #- bash ./deploy-gh-pages.sh
-  #- git config --global user.name "Travis-CI"
-  #- git config --global user.email "support@codeigniter.org.cn"
-  #- git clone --branch=gh-pages "https://${GH_TOKEN}@github.com/CodeIgniter-Chinese/codeigniter-user-guide.git" gh-pages
-  #- cd gh-pages
-  #- cp -Rf ../build/html/* .
-  #- git add -f .
-  #- git commit -m "Deploy to GitHub Pages"
-  #- git push -f origin gh-pages
+  - bash ./deploy-gh-pages.sh
 
 # Flags used here, not in `make html`:
 #  -n   Run in nit-picky mode. Currently, this generates warnings for all missing references.
 #  -W   Turn warnings into errors. This means that the build stops at the first warning and sphinx-build exits with exit status 1.
-
-deploy:
-  skip_cleanup: true
-  provider: releases
-  api_key:
-    secure: rLGHJqNPSYi9tyAXQIIUyiETbi8USNzsKeIudMOXUt42xjphnyn8rfPow0pGq1QMnr0XRRtTSuhNaSHHusqhIgjovCY/RabzdmUYl1ZeZ6x6Z5bwjtecm/P1IJUxX/Sy7ps+x2xugfeDU6vgHT9apActJJSYZHwYWBj/AW7IErCkWE3sgwn9IPpGqqbLK0mVGBvRlBP3wssuzBt7PiEvrZ+MKSgBNiYb8zP4A9D7GDDl7VPHC/ggkhzRZBCT+uAFH3yFRo38jNU9+MkUkMIwKjWJRrPwOz7epwjRIF2Ch5IMzkokB45QVZgO9ZfbyyvkTrG/381bzeVMTjhEImsvjfJMmrip+9QaRx5pfqaWcIPrRTl9oegUFEIweR9Edx24yAqVXvuMl6v5nNOiZcGcO6RJx5+341la/MogN8HWtkBtU++Ya4bHJPclj2hAmNYXmR+F/iKFrPz6oc7UCbF5+NHEPTvW/3wdPI/XAvCsI1x+8PvLI22Pjcy/7u4odsXzEzl1gDwUunVMW0gG2OgbsDx4Ma3zJmJK6En0vJmRgtIbaqZcwH5DsHNV0ituxxuALRG9aC8JwXj5CtDwOwoupiEs2GYkg6j+fgzCHiWi27LhJXWtPXY4pR1aX3rtgjsdVf/jWqmLjsVa6RGDsqJhcXenO+nhcoUNcvpZS0gozLw=
-  file:
-    - "./build/html/*"
-  on:
-    tags: false
