@@ -39,3 +39,5 @@ deploy:
   file: "./build/html/*"
   on:
     repo: CodeIgniter-Chinese/codeigniter-user-guide
+    tags: false
+    all_branches: true
