@@ -5,7 +5,7 @@ python:
 env:
   global:
   - GH_REF: github.com/CodeIgniter-Chinese/codeigniter-user-guide.git
-  - secure: "Uxi+sxVr/em2csV+smlFCAiCngsrIAUJkczaayQ8wnbPwwPgZlwReoCQQCWAly8fUPunRka7hdWzAJHkiyxI1EDxK16kfJ+8bIE2dVc3coC6sm/Sq0PQvTU+arYYAnFfFDGfFZKKtlVI9tf7JH2s2mtOqaMuZ3ptZB8hbg2vO2CM6ap+osJlqZPdolAvcOqh5ClwsoaUUMSzmkgT6zSXgBLrVWA+bLdVMkBD6GURbbHqpLYf/SaNzBR4JrWV5N24KL3J8k34wY0AoQuepqdDcFPzJ6LN0mpWs2aM67WXwPoxsu9RK89KpBL2R0anx/79ts449QdFlMzbbFkpi+6DtnoOU2/3j2h2Q7RA1ACc5b7MDeFtKRi6K5HgPu9XyxDU6p1tocicQdX91OqPUYVtoRFh1sfO4wj7UAO9DGTqeH+jM/6T/UyaflMM78Wm5w5iKhNYeuDrDqqVAOmhYp2QHXhR0MEqs/CtjM/E+wszGZ2FzUoFzUzJLb6gf3jW6q7ncDz83nZ8M9lsbBxW0BOAm4AcYWCYfE09HCxaOFh2SLWbuaE7+amgtHyUSvxsYr1CwkG6bhiMfQ7agwoLbY6wnqRovtBwzAqIzvDAOh+ds6jFC3wdxKSWaw+MZNjKtMkzoM8D0MEP1AIUAtjAIj4ocrlvEs1G6/z9Xm0ahXIRScs="
+  - secure: MH65HgNW1DUUzVc9ZJcV28dvn0Kn5w2kOnqpDC4wu9KvhG9s+GHNAN+l528ycOvQ+p4qG19hAVgM/GOp4w1ziXFq7HROf6SqAfrLx/rWsmFHpck43Z75F2LzGzSTlW+5XYdjG31q1z7xUq4zWW3K5Z9VOdAW0MqxlHpaA9Mmxs32q/cyUo1OVOdd4/fQYavvXqcEi9z6FULQLlJhm2yOP5sGOPY5$
 
 cache: 
 #  - apt
@@ -35,9 +35,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: "Uxi+sxVr/em2csV+smlFCAiCngsrIAUJkczaayQ8wnbPwwPgZlwReoCQQCWAly8fUPunRka7hdWzAJHkiyxI1EDxK16kfJ+8bIE2dVc3coC6sm/Sq0PQvTU+arYYAnFfFDGfFZKKtlVI9tf7JH2s2mtOqaMuZ3ptZB8hbg2vO2CM6ap+osJlqZPdolAvcOqh5ClwsoaUUMSzmkgT6zSXgBLrVWA+bLdVMkBD6GURbbHqpLYf/SaNzBR4JrWV5N24KL3J8k34wY0AoQuepqdDcFPzJ6LN0mpWs2aM67WXwPoxsu9RK89KpBL2R0anx/79ts449QdFlMzbbFkpi+6DtnoOU2/3j2h2Q7RA1ACc5b7MDeFtKRi6K5HgPu9XyxDU6p1tocicQdX91OqPUYVtoRFh1sfO4wj7UAO9DGTqeH+jM/6T/UyaflMM78Wm5w5iKhNYeuDrDqqVAOmhYp2QHXhR0MEqs/CtjM/E+wszGZ2FzUoFzUzJLb6gf3jW6q7ncDz83nZ8M9lsbBxW0BOAm4AcYWCYfE09HCxaOFh2SLWbuaE7+amgtHyUSvxsYr1CwkG6bhiMfQ7agwoLbY6wnqRovtBwzAqIzvDAOh+ds6jFC3wdxKSWaw+MZNjKtMkzoM8D0MEP1AIUAtjAIj4ocrlvEs1G6/z9Xm0ahXIRScs="
-  file: "./build/html/index.html"
-  skip_cleanup: true
+    secure: MH65HgNW1DUUzVc9ZJcV28dvn0Kn5w2kOnqpDC4wu9KvhG9s+GHNAN+l528ycOvQ+p4qG19hAVgM/GOp4w1ziXFq7HROf6SqAfrLx/rWsmFHpck43Z75F2LzGzSTlW+5XYdjG31q1z7xUq4zWW3K5Z9VOdAW0MqxlHpaA9Mmxs32q/cyUo1OVOdd4/fQYavvXqcEi9z6FULQLlJhm2yOP5sGOPY5$
+  file: "./build/html/*"
   on:
     repo: CodeIgniter-Chinese/codeigniter-user-guide
-    tags: true
