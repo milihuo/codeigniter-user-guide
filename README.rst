@@ -63,6 +63,12 @@ http://python.org/download/releases/2.7.2/
 在 HTML 第一次编译之后，后面将只会针对修改的文件进行重编译，这将大大的节约我们的时间。
 如果你想再重新全部编译一次，只需删除 *build* 目录然后编译即可。
 
+不想自己编译？
+==============
+
+如果不想自己编译，那么可以直接 `在线访问 <http://codeigniter-chinese.github.io/codeigniter-user-guide/>`_ 或者 `打包下载 <http://codeigniter-chinese.github.io/codeigniter-user-guide/codeigniter_user_guide.zip>`_。
+
+
 ********
 风格指南
 ********
