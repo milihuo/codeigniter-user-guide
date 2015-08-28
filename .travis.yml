@@ -21,6 +21,7 @@ sudo: false
 #     - texlive-fonts-recommended
 
 install:
+  - pip install --upgrade pip
   - pip install "Sphinx==1.2.3"
   - pip install "sphinxcontrib-phpdomain"
   - cd cilexer && python setup.py install && cd ..
