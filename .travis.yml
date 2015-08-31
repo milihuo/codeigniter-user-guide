@@ -26,6 +26,8 @@ install:
 
 script:
   - make html
+  - wget http://codeigniter-chinese.github.io/codeigniter-user-guide/_fonts/fonts.tar.gz
+  - tar xvzf fonts.tar.gz $HOME/.fonts/
   - bash ./deploy-gh-pages.sh
 
 # Flags used here, not in `make html`:
