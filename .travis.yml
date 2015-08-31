@@ -28,7 +28,8 @@ script:
   - make html
   - wget http://codeigniter-chinese.github.io/codeigniter-user-guide/_fonts/fonts.tar.gz
   - mkdir $HOME/.fonts
-  - tar xvzf fonts.tar.gz $HOME/.fonts/
+  - tar xvzf fonts.tar.gz
+  - cp *.ttf $HOME/.fonts/
 
 after_success:
   - bash ./deploy-gh-pages.sh
