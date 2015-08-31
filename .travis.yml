@@ -11,8 +11,6 @@ cache:
   directories:
   - $HOME/.cache/pip
 
-cache: apt
-
 sudo: false
 
 addons:
