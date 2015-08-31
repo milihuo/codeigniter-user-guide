@@ -11,14 +11,14 @@ cache:
   directories:
   - $HOME/.cache/pip
 
+cache: apt
+
 sudo: false
 
-# addons:
-#   apt:
-#     packages:
-#     - texlive-latex-recommended
-#     - texlive-latex-extra
-#     - texlive-fonts-recommended
+addons:
+  apt:
+    packages:
+    - texlive-xetex
 
 install:
   - pip install --upgrade pip
