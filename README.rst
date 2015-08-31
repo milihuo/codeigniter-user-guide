@@ -66,7 +66,7 @@ http://python.org/download/releases/2.7.2/
 不想自己编译？
 ==============
 
-如果不想自己编译，那么可以直接 `在线访问 <http://codeigniter-chinese.github.io/codeigniter-user-guide/>`_ 或者 `打包下载 <http://codeigniter-chinese.github.io/codeigniter-user-guide/codeigniter_user_guide.zip>`_。
+如果不想自己编译，那么可以直接 `在线访问 <http://codeigniter-chinese.github.io/codeigniter-user-guide/>`_ 、 `打包下载 <http://codeigniter-chinese.github.io/codeigniter-user-guide/codeigniter_user_guide.zip>`_ 或者 `下载PDF版 <http://codeigniter-chinese.github.io/codeigniter-user-guide/CodeIgniter.pdf>`_。
 
 
 ********
