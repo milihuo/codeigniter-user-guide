@@ -185,8 +185,8 @@ html_copy_source = False
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'CodeIgniter.tex', u'CodeIgniter 文档',
-   u'不列颠哥伦比亚理工学院 \\\\ \\newline \\break \\hfill CodeIgniter 中国开发者社区', 'manual'),
+  ('index', 'CodeIgniter.tex', u'CodeIgniter 中文手册',
+   u'不列颠哥伦比亚理工学院 \\\\ CodeIgniter 中国开发者社区', 'manual'),
 ]
 
 latex_elements = {
