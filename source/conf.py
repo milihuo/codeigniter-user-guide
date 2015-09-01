@@ -186,7 +186,7 @@ html_copy_source = False
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'CodeIgniter.tex', u'CodeIgniter 中文手册',
-   ur'不列颠哥伦比亚理工学院\\CodeIgniter 中国开发者社区  ', 'manual'),
+   ur'\RaggedRight 不列颠哥伦比亚理工学院\\CodeIgniter 中国开发者社区', 'manual'),
 ]
 
 latex_elements = {
