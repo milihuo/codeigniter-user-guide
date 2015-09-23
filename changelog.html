@@ -248,9 +248,89 @@
             
   <div class="section" id="id1">
 <h1>变更记录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="version-3-0-0">
-<h2>Version 3.0.0<a class="headerlink" href="#version-3-0-0" title="永久链接至标题">¶</a></h2>
-<p>Release Date: March 30, 2015</p>
+<div class="section" id="id2">
+<h2>版本 3.0.1<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>发布日期: 2015年8月7日</p>
+<ul class="simple">
+<li>Core<ul>
+<li>Added DoS mitigation to <a class="reference internal" href="general/compatibility_functions.html#hash_pbkdf2" title="hash_pbkdf2"><tt class="xref php php-func docutils literal"><span class="pre">hash_pbkdf2()</span></tt></a> <a class="reference internal" href="general/compatibility_functions.html"><em>compatibility function</em></a>.</li>
+</ul>
+</li>
+<li>Database<ul>
+<li>Added <tt class="docutils literal"><span class="pre">list_fields()</span></tt> support for SQLite ('sqlite3' and 'pdo_sqlite' drivers).</li>
+<li>Added SSL connection support for the 'mysqli' and 'pdo_mysql' drivers.</li>
+</ul>
+</li>
+<li>Libraries<ul>
+<li><a class="reference internal" href="libraries/file_uploading.html"><em>File Uploading Library</em></a> changes:<ul>
+<li>Changed method <tt class="docutils literal"><span class="pre">set_error()</span></tt> to accept a custom log level (defaults to 'error').</li>
+<li>Errors &quot;no_file_selected&quot;, &quot;file_partial&quot;, &quot;stopped_by_extension&quot;, &quot;no_file_types&quot;, &quot;invalid_filetype&quot;, &quot;bad_filename&quot; are now logged at the 'debug' level.</li>
+<li>Errors &quot;file_exceeds_limit&quot;, &quot;file_exceeds_form_limit&quot;, &quot;invalid_filesize&quot;, &quot;invalid_dimensions&quot; are now logged at the 'info' level.</li>
+</ul>
+</li>
+<li>Added 'is_resource' to the available expectations in <a class="reference internal" href="libraries/unit_testing.html"><em>Unit Testing Library</em></a>.</li>
+</ul>
+</li>
+<li>Helpers<ul>
+<li>Added Unicode support to <a class="reference internal" href="helpers/url_helper.html"><em>URL Helper</em></a> function <a class="reference internal" href="helpers/url_helper.html#url_title" title="url_title"><tt class="xref php php-func docutils literal"><span class="pre">url_title()</span></tt></a>.</li>
+<li>Added support for passing the &quot;extra&quot; parameter as an array to all <a class="reference internal" href="helpers/form_helper.html"><em>Form Helper</em></a> functions that use it.</li>
+</ul>
+</li>
+<li>Core<ul>
+<li>Added support for defining a list of specific query parameters in <tt class="docutils literal"><span class="pre">$config['cache_query_string']</span></tt> for the <a class="reference internal" href="libraries/output.html"><em>Output Library</em></a>.</li>
+<li>Added class existence and inheritance checks to <tt class="docutils literal"><span class="pre">CI_Loader::model()</span></tt> in order to ease debugging in case of name collisions.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="bug-fixes-for-3-0-1">
+<h3>Bug fixes for 3.0.1<a class="headerlink" href="#bug-fixes-for-3-0-1" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>Fixed a bug (#3733) - Autoloading of libraries with aliases didn't work, although it was advertised to.</li>
+<li>Fixed a bug (#3744) - Redis <a class="reference internal" href="libraries/caching.html"><em>Caching</em></a> driver didn't handle authentication failures properly.</li>
+<li>Fixed a bug (#3761) - <a class="reference internal" href="helpers/url_helper.html"><em>URL Helper</em></a> function <a class="reference internal" href="helpers/url_helper.html#anchor" title="anchor"><tt class="xref php php-func docutils literal"><span class="pre">anchor()</span></tt></a> didn't work with array inputs.</li>
+<li>Fixed a bug (#3773) - <tt class="docutils literal"><span class="pre">db_select()</span></tt> didn't work for MySQL with the PDO <a class="reference internal" href="database/index.html"><em>Database</em></a> driver.</li>
+<li>Fixed a bug (#3771) - <a class="reference internal" href="libraries/form_validation.html"><em>Form Validation Library</em></a> was looking for a 'form_validation_' prefix when trying to translate field name labels.</li>
+<li>Fixed a bug (#3787) - <a class="reference internal" href="libraries/ftp.html"><em>FTP Library</em></a> method <tt class="docutils literal"><span class="pre">delete_dir()</span></tt> failed when the target has subdirectories.</li>
+<li>Fixed a bug (#3801) - <a class="reference internal" href="libraries/output.html"><em>Output Library</em></a> method <tt class="docutils literal"><span class="pre">_display_cache()</span></tt> incorrectly looked for the last modified time of a directory instead of the cache file.</li>
+<li>Fixed a bug (#3816) - <a class="reference internal" href="libraries/form_validation.html"><em>Form Validation Library</em></a> treated empty string values as non-existing ones.</li>
+<li>Fixed a bug (#3823) - <a class="reference internal" href="libraries/sessions.html"><em>Session Library</em></a> drivers Redis and Memcached didn't properly handle locks that are blocking the request for more than 30 seconds.</li>
+<li>Fixed a bug (#3846) - <a class="reference internal" href="libraries/image_lib.html"><em>Image Manipulation Library</em></a> method <cite>image_mirror_gd()</cite> didn't properly initialize its variables.</li>
+<li>Fixed a bug (#3854) - <cite>field_data()</cite> didn't work properly with the Oracle (OCI8) database driver.</li>
+<li>Fixed a bug in the <a class="reference internal" href="database/utilities.html"><em>Database Utility Class</em></a> method <tt class="docutils literal"><span class="pre">csv_from_result()</span></tt> didn't work with a whitespace CSV delimiter.</li>
+<li>Fixed a bug (#3890) - <a class="reference internal" href="libraries/input.html"><em>Input Library</em></a> method <tt class="docutils literal"><span class="pre">get_request_header()</span></tt> treated header names as case-sensitive.</li>
+<li>Fixed a bug (#3903) - <a class="reference internal" href="libraries/form_validation.html"><em>Form Validation Library</em></a> ignored &quot;unnamed&quot; closure validation rules.</li>
+<li>Fixed a bug (#3904) - <a class="reference internal" href="libraries/form_validation.html"><em>Form Validation Library</em></a> ignored &quot;named&quot; callback rules when the field is empty and there's no 'required' rule.</li>
+<li>Fixed a bug (#3922) - <a class="reference internal" href="libraries/email.html"><em>Email</em></a> and <a class="reference internal" href="libraries/xmlrpc.html"><em>XML-RPC</em></a> libraries could enter an infinite loop due to <a class="reference external" href="https://bugs.php.net/bug.php?id=39598">PHP bug #39598</a>.</li>
+<li>Fixed a bug (#3913) - <a class="reference internal" href="libraries/caching.html"><em>Cache Library</em></a> didn't work with the direct <tt class="docutils literal"><span class="pre">$this-&gt;cache-&gt;$driver_name-&gt;method()</span></tt> syntax with Redis and Memcache(d).</li>
+<li>Fixed a bug (#3932) - <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> didn't properly compile WHERE and HAVING conditions for field names that end with &quot;and&quot;, &quot;or&quot;.</li>
+<li>Fixed a bug in <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> where <tt class="docutils literal"><span class="pre">delete()</span></tt> didn't properly work on multiple tables with a WHERE condition previously set via <tt class="docutils literal"><span class="pre">where()</span></tt>.</li>
+<li>Fixed a bug (#3952) - <a class="reference internal" href="database/index.html"><em>Database</em></a> method <tt class="docutils literal"><span class="pre">list_fields()</span></tt> didn't work with SQLite3.</li>
+<li>Fixed a bug (#3955) - <a class="reference internal" href="libraries/caching.html"><em>Cache Library</em></a> methods <tt class="docutils literal"><span class="pre">increment()</span></tt> and <tt class="docutils literal"><span class="pre">decrement()</span></tt> ignored the 'key_prefix' setting.</li>
+<li>Fixed a bug (#3963) - <a class="reference internal" href="libraries/unit_testing.html"><em>Unit Testing Library</em></a> wrongly tried to translate filenames, line numbers and notes values in test results.</li>
+<li>Fixed a bug (#3965) - <a class="reference internal" href="libraries/file_uploading.html"><em>File Uploading Library</em></a> ignored the &quot;encrypt_name&quot; setting when &quot;overwrite&quot; is enabled.</li>
+<li>Fixed a bug (#3968) - <a class="reference internal" href="database/forge.html"><em>Database Forge</em></a> method <tt class="docutils literal"><span class="pre">add_key()</span></tt> didn't treat array inputs as composite keys unless it's a PRIMARY KEY.</li>
+<li>Fixed a bug (#3715) - <a class="reference internal" href="libraries/pagination.html"><em>Pagination Library</em></a> could generate broken link when a protocol-relative base URL is used.</li>
+<li>Fixed a bug (#3828) - <a class="reference internal" href="libraries/output.html"><em>Output Library</em></a> method <tt class="docutils literal"><span class="pre">delete_cache()</span></tt> couldn't delete index page caches.</li>
+<li>Fixed a bug (#3704) - <a class="reference internal" href="database/index.html"><em>Database</em></a> method <tt class="docutils literal"><span class="pre">stored_procedure()</span></tt> in the 'oci8' driver didn't properly bind parameters.</li>
+<li>Fixed a bug (#3778) - <a class="reference internal" href="helpers/download_helper.html"><em>Download Helper</em></a> function <a class="reference internal" href="helpers/download_helper.html#force_download" title="force_download"><tt class="xref php php-func docutils literal"><span class="pre">force_download()</span></tt></a> incorrectly sent a <em>Pragma</em> response header.</li>
+<li>Fixed a bug (#3752) - <tt class="docutils literal"><span class="pre">$routing['directory']</span></tt> overrides were not properly handled and always resulted in a 404 &quot;Not Found&quot; error.</li>
+<li>Fixed a bug (#3279) - <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> methods <tt class="docutils literal"><span class="pre">update()</span></tt> and <tt class="docutils literal"><span class="pre">get_compiled_update()</span></tt> did double escaping on the table name if it was provided via <tt class="docutils literal"><span class="pre">from()</span></tt>.</li>
+<li>Fixed a bug (#3991) - <tt class="docutils literal"><span class="pre">$config['rewrite_short_tags']</span></tt> never worked due to <tt class="docutils literal"><span class="pre">function_exists('eval')</span></tt> always returning FALSE.</li>
+<li>Fixed a bug where the <a class="reference internal" href="libraries/file_uploading.html"><em>File Uploading Library</em></a> library will not properly configure its maximum file size unless the input value is of type integer.</li>
+<li>Fixed a bug (#4000) - <a class="reference internal" href="libraries/pagination.html"><em>Pagination Library</em></a> didn't enable &quot;rel&quot; attributes by default if no attributes-related config options were used.</li>
+<li>Fixed a bug (#4004) - <a class="reference internal" href="libraries/uri.html"><em>URI Class</em></a> didn't properly parse the request URI if it contains a colon followed by a digit.</li>
+<li>Fixed a bug in <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> where the <tt class="docutils literal"><span class="pre">$escape</span></tt> parameter for some methods only affected field names.</li>
+<li>Fixed a bug (#4012) - <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> methods <tt class="docutils literal"><span class="pre">where_in()</span></tt>, <tt class="docutils literal"><span class="pre">or_where_in()</span></tt>, <tt class="docutils literal"><span class="pre">where_not_in()</span></tt>, <tt class="docutils literal"><span class="pre">or_where_not_in()</span></tt> didn't take into account previously cached WHERE conditions when query cache is in use.</li>
+<li>Fixed a bug (#4015) - <a class="reference internal" href="libraries/email.html"><em>Email Library</em></a> method <tt class="docutils literal"><span class="pre">set_header()</span></tt> didn't support method chaining, although it was advertised.</li>
+<li>Fixed a bug (#4027) - <a class="reference internal" href="general/routing.html"><em>Routing</em></a> with HTTP verbs only worked if the route request method was declared in all-lowercase letters.</li>
+<li>Fixed a bug (#4026) - <a class="reference internal" href="database/transactions.html"><em>Database Transactions</em></a> always rollback if any previous <tt class="docutils literal"><span class="pre">query()</span></tt> call fails.</li>
+<li>Fixed a bug (#4023) - <a class="reference internal" href="helpers/string_helper.html"><em>String Helper</em></a> function <tt class="docutils literal"><span class="pre">increment_string()</span></tt> didn't escape its <tt class="docutils literal"><span class="pre">$separator</span></tt> parameter.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>版本 3.0.0<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>发布日期: 2015年3月30日</p>
 <ul class="simple">
 <li>License<ul>
 <li>CodeIgniter has been relicensed with the <a class="reference external" href="http://opensource.org/licenses/MIT">MIT License</a>, eliminating its old proprietary licensing.</li>
@@ -3391,7 +3471,7 @@ and fixed various typos.</li>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-09-01.
+       最后修改: 2015-09-23.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
