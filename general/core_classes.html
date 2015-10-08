@@ -251,14 +251,11 @@
             
   <div class="section" id="id1">
 <h1>创建核心系统类<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>每次 CodeIgniter 运行时，都有一些基础类伴随着核心框架自动的被初始化。
-但你也可以使用你自己类来替代这些核心类或者扩展这些核心类。</p>
-<p><strong>大多数用户一般不会有这种需求，但对于那些想较大幅度的改变
-CodeIgniter 的人来说，我们依然提供了替换和扩展核心类的选择。</strong></p>
+<p>每次 CodeIgniter 运行时，都有一些基础类伴随着核心框架自动的被初始化。但你也可以使用你自己类来替代这些核心类或者扩展这些核心类。</p>
+<p><strong>大多数用户一般不会有这种需求，但对于那些想较大幅度的改变 CodeIgniter 的人来说，我们依然提供了替换和扩展核心类的选择。</strong></p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">改变系统核心类会产生很大影响，所以在你做之前必须清楚地
-知道自己正在做什么。</p>
+<p class="last">改变系统核心类会产生很大影响，所以在你做之前必须清楚地知道自己正在做什么。</p>
 </div>
 <div class="section" id="id2">
 <h2>系统类清单<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
@@ -282,15 +279,13 @@ CodeIgniter 的人来说，我们依然提供了替换和扩展核心类的选�
 </div>
 <div class="section" id="id3">
 <h2>替换核心类<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>要使用你自己的系统类替换默认的系统类只需简单的将你自己的文件
-放入目录 <em>application/core</em> 下:</p>
+<p>要使用你自己的系统类替换默认的系统类只需简单的将你自己的文件放入目录 <em>application/core</em> 下:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">application</span><span class="o">/</span><span class="nx">core</span><span class="o">/</span><span class="nx">some_class</span><span class="o">.</span><span class="nx">php</span>
 </pre></div>
 </div>
 <p>如果这个目录不存在，你可以创建一个。</p>
 <p>任何一个和上面清单中同名的文件将被替换成核心类。</p>
-<p>要注意的是，你的类名必须以 CI 开头，譬如，你的文件是 Input.php ，
-那么类应该命名为:</p>
+<p>要注意的是，你的类名必须以 CI 开头，譬如，你的文件是 Input.php，那么类应该命名为:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CI_Input</span> <span class="p">{</span>
 
 <span class="p">}</span>
@@ -299,15 +294,12 @@ CodeIgniter 的人来说，我们依然提供了替换和扩展核心类的选�
 </div>
 <div class="section" id="id4">
 <h2>扩展核心类<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<p>如果你只是想往现有类中添加一些功能，譬如增加一两个方法，这时替换
-整个类感觉就有点杀鸡用牛刀了。在这种情况下，最好是使用扩展类的方法。
-扩展一个类和替换一个类的做法几乎是一样的，除了要注意以下几点：</p>
+<p>如果你只是想往现有类中添加一些功能，譬如增加一两个方法，这时替换整个类感觉就有点杀鸡用牛刀了。在这种情况下，最好是使用扩展类的方法。扩展一个类和替换一个类的做法几乎是一样的，除了要注意以下几点：</p>
 <ul class="simple">
 <li>你定义的类必须继承自父类。</li>
 <li>你的类名和文件名必须以 MY_ 开头。（这是可配置的，见下文）</li>
 </ul>
-<p>举个例子，要扩展原始的 Input 类，你需要新建一个文件
-application/core/MY_Input.php，然后像下面这样定义你的类:</p>
+<p>举个例子，要扩展原始的 Input 类，你需要新建一个文件 application/core/MY_Input.php，然后像下面这样定义你的类:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MY_Input</span> <span class="k">extends</span> <span class="nx">CI_Input</span> <span class="p">{</span>
 
 <span class="p">}</span>
@@ -326,10 +318,8 @@ application/core/MY_Input.php，然后像下面这样定义你的类:</p>
 </pre></div>
 </div>
 </div>
-<p><strong>提示：</strong> 任何和父类同名的方法将会取代父类中的方法（这又被称作 “方法覆盖”），
-这让你可以充分的利用并修改 CodeIgniter 的核心。</p>
-<p>如果你扩展了 控制器 核心类，那么记得在你的应用程序控制器里继承你
-扩展的新类。</p>
+<p><a href="#id5"><span class="problematic" id="id6">**</span></a>提示：<a href="#id7"><span class="problematic" id="id8">**</span></a>任何和父类同名的方法将会取代父类中的方法（这又被称作“方法覆盖”），这让你可以充分的利用并修改 CodeIgniter 的核心。</p>
+<p>如果你扩展了控制器核心类，那么记得在你的应用程序控制器里继承你扩展的新类。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Welcome</span> <span class="k">extends</span> <span class="nx">MY_Controller</span> <span class="p">{</span>
 
     <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
@@ -344,15 +334,13 @@ application/core/MY_Input.php，然后像下面这样定义你的类:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="id5">
-<h3>自定义前缀<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<p>要想自定义你自己的类的前缀，打开文件 <em>application/config/config.php</em>
-然后找到这项:</p>
+<div class="section" id="id9">
+<h3>自定义前缀<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>要想自定义你自己的类的前缀，打开文件 <em>application/config/config.php</em> 然后找到这项:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;subclass_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MY_&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>请注意所有原始的 CodeIgniter 类库都以 CI_ 开头，所以请不要使用这个
-作为你的自定义前缀。</p>
+<p>请注意所有原始的 CodeIgniter 类库都以 CI_ 开头，所以请不要使用这个作为你的自定义前缀。</p>
 </div>
 </div>
 </div>
@@ -416,7 +404,7 @@ application/core/MY_Input.php，然后像下面这样定义你的类:</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-09-23.
+       最后修改: 2015-10-08.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
