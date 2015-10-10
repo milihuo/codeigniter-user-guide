@@ -28,23 +28,7 @@
 
 该方法是 ``result_object()`` 方法的别名。
 
-如果你的查询可能会没有结果，推荐在处理结果之前，先使用方法
-``num_rows()`` 检验一下::
-
-	$query = $this->db->query("YOUR QUERY");
-	
-	if ($query->num_rows() > 0)
-	{
-		foreach ($query->result() as $row)
-		{
-			echo $row->title;
-			echo $row->name;
-			echo $row->body;
-		}
-	}
-
-你还可以传一个字符串参数给 ``result()`` 方法，这个字符串参数代表
-你想要把每个结果转换成某个类的类名（这个类必须已经加载）
+你还可以传一个字符串参数给 ``result()`` 方法，这个字符串参数代表你想要把每个结果转换成某个类的类名（这个类必须已经加载）
 
 ::
 
@@ -58,8 +42,7 @@
 
 **result_array()** 方法
 
-这个方法以**一个纯粹的数组**形式返回查询结果，如果无结果，则返回一个空数组。
-一般情况下，你会像下面这样在一个 foreach 循环中使用它::
+这个方法以 **一个纯粹的数组** 形式返回查询结果，如果无结果，则返回一个空数组。一般情况下，你会像下面这样在一个 foreach 循环中使用它::
 
 	$query = $this->db->query("YOUR QUERY");
 	
@@ -76,15 +59,14 @@
 
 **row()** 方法
 
-这个方法返回单独一行结果。如果你的查询不止一行结果，它只返回第一行。
-返回的结果是**对象**形式，这里是用例::
+这个方法返回单独一行结果。如果你的查询不止一行结果，它只返回第一行。返回的结果是 **对象** 形式，这里是用例::
 
 	$query = $this->db->query("YOUR QUERY");
-	
-	if ($query->num_rows() > 0)
+
+	$row = $query->row();
+
+	if (isset($row))
 	{
-		$row = $query->row();
-		
 		echo $row->title;
 		echo $row->name;
 		echo $row->body;
@@ -104,15 +86,14 @@
 
 **row_array()** 方法
 
-这个方法除了返回结果是一个数组而不是一个对象之外，其他的和上面的 ``row()`` 方法完全一样。
-举例::
+这个方法除了返回结果是一个数组而不是一个对象之外，其他的和上面的 ``row()`` 方法完全一样。举例::
 
 	$query = $this->db->query("YOUR QUERY");
-	
-	if ($query->num_rows() > 0)
+
+	$row = $query->row_array();
+
+	if (isset($row))
 	{
-		$row = $query->row_array();
-		
 		echo $row['title'];
 		echo $row['name'];
 		echo $row['body'];
@@ -161,6 +142,94 @@
 	$query->unbuffered_row();		// object
 	$query->unbuffered_row('object');	// object
 	$query->unbuffered_row('array');	// associative array
+
+*********************
+自定义结果对象
+*********************
+
+You can have the results returned as an instance of a custom class instead
+of a ``stdClass`` or array, as the ``result()`` and ``result_array()``
+methods allow. This requires that the class is already loaded into memory.
+The object will have all values returned from the database set as properties.
+If these have been declared and are non-public then you should provide a
+``__set()`` method to allow them to be set.
+
+Example::
+
+	class User {
+
+		public $id;
+		public $email;
+		public $username;
+
+		protected $last_login;
+
+		public function last_login($format)
+		{
+			return $this->last_login->format($format);
+		}
+
+		public function __set($name, $value)
+		{
+			if ($name === 'last_login')
+			{
+				$this->last_login = DateTime::createFromFormat('U', $value);
+			}
+		}
+
+		public function __get($name)
+		{
+			if (isset($this->$name))
+			{
+				return $this->$name;
+			}
+		}
+	}
+
+In addition to the two methods listed below, the following methods also can
+take a class name to return the results as: ``first_row()``, ``last_row()``,
+``next_row()``, and ``previous_row()``.
+
+**custom_result_object()**
+
+Returns the entire result set as an array of instances of the class requested.
+The only parameter is the name of the class to instantiate.
+
+Example::
+
+	$query = $this->db->query("YOUR QUERY");
+
+	$rows = $query->custom_result_object('User');
+
+	foreach ($rows as $row)
+	{
+		echo $row->id;
+		echo $row->email;
+		echo $row->last_login('Y-m-d');
+	}
+
+**custom_row_object()**
+
+Returns a single row from your query results. The first parameter is the row
+number of the results. The second parameter is the class name to instantiate.
+
+Example::
+
+	$query = $this->db->query("YOUR QUERY");
+
+	$row = $query->custom_row_object(0, 'User');
+
+	if (isset($row))
+	{
+		echo $row->email;   // access attributes
+		echo $row->last_login('Y-m-d');   // access class methods
+	}
+
+You can also use the ``row()`` method in exactly the same way.
+
+Example::
+
+	$row = $query->custom_row_object(0, 'User');
 
 *********************
 结果辅助方法

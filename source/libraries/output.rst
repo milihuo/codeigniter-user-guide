@@ -151,7 +151,7 @@ CodeIgniter 自动调用。尽管如此，在你需要时，你还是可以对�
 
 		允许你手工设置服务器的 HTTP 状态码。例如::
 
-			$this->output->set_status_header('401');
+			$this->output->set_status_header(401);
 			// Sets the header as:  Unauthorized
 
 		`阅读这里 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>`_ 得到一份完整的 HTTP 状态码列表。

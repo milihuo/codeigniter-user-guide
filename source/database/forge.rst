@@ -125,13 +125,14 @@
 
 	$this->dbforge->add_field("label varchar(100) NOT NULL DEFAULT 'default label'");
 
+.. note:: Passing raw strings as fields cannot be followed by ``add_key()`` calls on those fields.
 
-.. note:: 多次调用 add_field() 将会累积
+.. note:: 多次调用 add_field() 将会累积。
 
 创建 id 字段
 --------------------
 
-创建 id 字段和创建其他字段非常不一样，id 字段将会自动定义成类型为 INT(9)  的自增主键。
+创建 id 字段和创建其他字段非常不一样，id 字段将会自动定义成类型为 INT(9) 的自增主键。
 
 ::
 

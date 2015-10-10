@@ -133,7 +133,7 @@ HTML 辅助函数文件包含了用于处理 HTML 的一些函数。
 	:returns:	HTML-formatted unordered list
 	:rtype:	string
 
-	用于生成 HTML 无序列表（ <ul> ），参数为简单的数组或者多维数组。例如::
+	用于生成 HTML 无序列表（<ul>），参数为简单的数组或者多维数组。例如::
 
 		$list = array(
 			'red',

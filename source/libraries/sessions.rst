@@ -496,7 +496,6 @@ session 并发非常少的时候是对的。当 session 的并发数越来越大
 		`ip_address` varchar(45) NOT NULL,
 		`timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
 		`data` blob NOT NULL,
-		PRIMARY KEY (id),
 		KEY `ci_sessions_timestamp` (`timestamp`)
 	);
 
@@ -506,16 +505,23 @@ session 并发非常少的时候是对的。当 session 的并发数越来越大
 		"id" varchar(40) NOT NULL,
 		"ip_address" varchar(45) NOT NULL,
 		"timestamp" bigint DEFAULT 0 NOT NULL,
-		"data" text DEFAULT '' NOT NULL,
-		PRIMARY KEY ("id")
+		"data" text DEFAULT '' NOT NULL
 	);
 
 	CREATE INDEX "ci_sessions_timestamp" ON "ci_sessions" ("timestamp");
 
-如果你想开启 *sess_match_ip* 参数，你还应该在新建表之后进行如下操作::
+You will also need to add a PRIMARY KEY **depending on your 'sess_match_ip'
+setting**. The examples below work both on MySQL and PostgreSQL::
 
-	// Works both on MySQL and PostgreSQL
-	ALTER TABLE ci_sessions ADD CONSTRAINT ci_sessions_id_ip UNIQUE (id, ip_address);
+	// When sess_match_ip = TRUE
+	ALTER TABLE ci_sessions ADD PRIMARY KEY (id, ip_address);
+
+	// When sess_match_ip = FALSE
+	ALTER TABLE ci_sessions ADD PRIMARY KEY (id);
+
+	// To drop a previously created primary key (use when changing the setting)
+	ALTER TABLE ci_sessions DROP PRIMARY KEY;
+
 
 .. important:: 只有 MySQL 和 PostgreSQL 数据库是被正式支持的，因为其他数据库平台都缺乏合适的锁机制。
 	在没锁的情况下使用 session 可能会导致大量的问题，特别是使用了大量的 AJAX ，

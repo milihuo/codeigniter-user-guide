@@ -588,17 +588,17 @@ outer 和 right outer 。
 	$sql = $this->db->set($data)->get_compiled_insert('mytable');
 	echo $sql;
 
-	// Produces string: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date')
+	// Produces string: INSERT INTO mytable (`title`, `name`, `date`) VALUES ('My title', 'My name', 'My date')
 
 第二个参数用于设置是否重置查询（默认情况下会重置，正如 $this->db->insert() 方法一样）::
 
 	echo $this->db->set('title', 'My Title')->get_compiled_insert('mytable', FALSE);
 
-	// Produces string: INSERT INTO mytable (title) VALUES ('My Title')
+	// Produces string: INSERT INTO mytable (`title`) VALUES ('My Title')
 
 	echo $this->db->set('content', 'My Content')->get_compiled_insert();
 
-	// Produces string: INSERT INTO mytable (title, content) VALUES ('My Title', 'My Content')
+	// Produces string: INSERT INTO mytable (`title`, `content`) VALUES ('My Title', 'My Content')
 
 上面的例子中，最值得注意的是，第二个查询并没有用到 **$this->db->from()** 方法，
 也没有为查询指定表名参数，但是它生成的 SQL 语句中有 INTO mytable 子句。
@@ -669,7 +669,7 @@ outer 和 right outer 。
 ::
 
 	$this->db->set('name', $name);
-	$this->db->insert('mytable');  // Produces: INSERT INTO mytable (name) VALUES ('{$name}')
+	$this->db->insert('mytable');  // Produces: INSERT INTO mytable (`name`) VALUES ('{$name}')
 
 如果你多次调用该方法，它会正确组装出 INSERT 或 UPDATE 语句来::
 
@@ -678,15 +678,17 @@ outer 和 right outer 。
 	$this->db->set('status', $status);
 	$this->db->insert('mytable');
 
-**set()** 方法也接受可选的第三个参数（$escape），如果设置为 FALSE，数据将不会自动转义。
-为了说明两者之间的区别，这里有一个带转义的 set() 方法和不带转义的例子。
+**set()** 方法也接受可选的第三个参数（``$escape``），如果设置为 FALSE，数据将不会自动转义。为了说明两者之间的区别，这里有一个带转义的 ``set()`` 方法和不带转义的例子。
 
 ::
 
 	$this->db->set('field', 'field+1', FALSE);
-	$this->db->insert('mytable'); // gives INSERT INTO mytable (field) VALUES (field+1)
+	$this->db->where('id', 2);
+	$this->db->update('mytable'); // gives UPDATE mytable SET field = field+1 WHERE id = 2
+
 	$this->db->set('field', 'field+1');
-	$this->db->insert('mytable'); // gives INSERT INTO mytable (field) VALUES ('field+1')
+	$this->db->where('id', 2);
+	$this->db->update('mytable'); // gives UPDATE `mytable` SET `field` = 'field+1' WHERE `id` = 2
 
 你也可以传一个关联数组作为参数::
 
@@ -715,8 +717,7 @@ outer 和 right outer 。
 
 **$this->db->update()**
 
-该方法根据你提供的数据生成一条 UPDATE 语句并执行，它的参数是一个**数组**
-或一个**对象**，下面是使用数组的例子::
+该方法根据你提供的数据生成一条 UPDATE 语句并执行，它的参数是一个 **数组** 或一个 **对象** ，下面是使用数组的例子::
 
 	$data = array(
 		'title' => $title,
@@ -726,7 +727,11 @@ outer 和 right outer 。
 
 	$this->db->where('id', $id);
 	$this->db->update('mytable', $data);
-	// Produces: // UPDATE mytable  // SET title = '{$title}', name = '{$name}', date = '{$date}' // WHERE id = $id
+	// Produces:
+	//
+	//	UPDATE mytable
+	//	SET title = '{$title}', name = '{$name}', date = '{$date}'
+	//	WHERE id = $id
 
 或者你可以使用一个对象::
 
@@ -741,7 +746,11 @@ outer 和 right outer 。
 	$object = new Myclass;
 	$this->db->where('id', $id);
 	$this->db->update('mytable', $object);
-	// Produces: // UPDATE mytable  // SET title = '{$title}', name = '{$name}', date = '{$date}' // WHERE id = $id
+	// Produces:
+	//
+	// UPDATE `mytable`
+	// SET `title` = '{$title}', `name` = '{$name}', `date` = '{$date}'
+	// WHERE id = `$id`
 
 .. note:: 所有数据会被自动转义，生成安全的查询语句。
 
@@ -1118,7 +1127,7 @@ Class Reference
 
 		:param	mixed	$key: Name of field to compare, or associative array
 		:param	mixed	$value: If a single key, compared to this value
-		:param	boolean	$escape: Whether to escape values and identifiers
+		:param	bool	$escape: Whether to escape values and identifiers
 		:returns:	DB_query_builder instance
 		:rtype:	object
 
@@ -1129,7 +1138,7 @@ Class Reference
 
 		:param	mixed	$key: Name of field to compare, or associative array
 		:param	mixed	$value: If a single key, compared to this value
-		:param	boolean	$escape: Whether to escape values and identifiers
+		:param	bool	$escape: Whether to escape values and identifiers
 		:returns:	DB_query_builder instance
 		:rtype:	object
 
@@ -1140,7 +1149,7 @@ Class Reference
 
 		:param	string	$key: The field to search
 		:param	array	$values: The values searched on
-		:param	boolean	$escape: Whether to escape identifiers
+		:param	bool	$escape: Whether to escape identifiers
 		:returns:	DB_query_builder instance
 		:rtype:	object
 
@@ -1151,7 +1160,7 @@ Class Reference
 
 		:param	string	$key: The field to search
 		:param	array	$values: The values searched on
-		:param	boolean	$escape: Whether to escape identifiers
+		:param	bool	$escape: Whether to escape identifiers
 		:returns:	DB_query_builder instance
 		:rtype:	object
 
@@ -1162,7 +1171,7 @@ Class Reference
 
 		:param	string	$key: Name of field to examine
 		:param	array	$values: Array of target values
-		:param	boolean	$escape: Whether to escape identifiers
+		:param	bool	$escape: Whether to escape identifiers
 		:returns:	DB_query_builder instance
 		:rtype:	object
 
@@ -1173,7 +1182,7 @@ Class Reference
 
 		:param	string	$key: Name of field to examine
 		:param	array	$values: Array of target values
-		:param	boolean	$escape: Whether to escape identifiers
+		:param	bool	$escape: Whether to escape identifiers
 		:returns:	DB_query_builder instance
 		:rtype:	object
 

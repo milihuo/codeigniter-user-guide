@@ -300,7 +300,7 @@ CodeIgniter 允许你将多个规则连接在一起。让我们试一试，修�
 
 在上面的例子里，我们去掉字符串两端空白（trimming），检查字符串的长度，确保两次输入的密码一致。
 
-**任何只有一个参数的 PHP 原生函数都可以被用作一个规则，比如 ``htmlspecialchars``， ``trim`` 等等。**
+**任何只有一个参数的 PHP 原生函数都可以被用作一个规则，比如 ``htmlspecialchars``，``trim`` 等等。**
 
 .. note:: 你一般会在验证规则**之后**使用预处理功能，这样如果发生错误，原数据将会被显示在表单。
 
@@ -486,10 +486,13 @@ TRUE 的东西都可以作为规则。
 设置错误信息
 ======================
 
-所有原生的错误信息都位于下面的语言文件中： 
-**language/english/form_validation_lang.php**
+所有原生的错误信息都位于下面的语言文件中： **language/english/form_validation_lang.php**
 
-如果要为某个规则设置你的自定义信息你可以编辑那个文件，或使用下面的方法::
+To set your own global custom message for a rule, you can either 
+extend/override the language file by creating your own in
+**application/language/english/form_validation_lang.php** (read more
+about this in the :doc:`Language Class <language>` documentation),
+or use the following method::
 
 	$this->form_validation->set_message('rule', 'Error Message');
 
@@ -616,7 +619,12 @@ TRUE 的东西都可以作为规则。
 
 	$this->form_validation->set_data($data);
 
-创建验证规则，运行验证，获取错误消息和上面说讲的那些验证 ``$_POST`` 数组是一样的。
+Creating validation rules, running the validation, and retrieving error
+messages works the same whether you are validating ``$_POST`` data or
+another array of your choice.
+
+.. important:: You have to call the ``set_data()`` method *before* defining
+	any validation rules.
 
 .. important:: 如果你想验证多个数组，那么你应该在验证下一个新数组之前先调用 ``reset_validation()`` 方法。
 

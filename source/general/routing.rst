@@ -151,18 +151,22 @@ URL 的第一段是 "product" ，第二段是数字时，将重定向到 "catalo
 
 	$route['default_controller'] = 'welcome';
 
-这个路由表示当用户不带任何参数直接访问你的网站时该加载哪个控制器，
-上例中，将会加载 "welcome" 类。你应该永远都有个默认的路由，要不然
-会显示 404 页面。
+This route points to the action that should be executed if the URI contains
+no data, which will be the case when people load your root URL.
+The setting accepts a **controller/method** value and ``index()`` would be
+the default method if you don't specify one. In the above example, it is
+``Welcome::index()`` that would be called.
+
+.. note:: You can NOT use a directory as a part of this setting!
+
+You are encouraged to always have a default route as otherwise a 404 page
+will appear by default.
 
 ::
 
 	$route['404_override'] = '';
 
-这个路由表示当用户请求了一个不存在的页面时该加载哪个控制器，它将会覆盖
-默认的 404 错误页面。``show_404()`` 函数不会受影响，它还是会继续加载
-*application/views/errors/* 目录下的默认的 *error_404.php* 文件。
-
+这个路由表示当用户请求了一个不存在的页面时该加载哪个控制器，它将会覆盖默认的 404 错误页面。Same per-directory rules as with 'default_controller' apply here as well. ``show_404()`` 函数不会受影响，它还是会继续加载 *application/views/errors/* 目录下的默认的 *error_404.php* 文件。
 
 ::
 

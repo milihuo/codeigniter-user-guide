@@ -14,8 +14,7 @@ CodeIgniter 是为 PHP 开发人员提供的一套 Web 应用程序工具包。
 CodeIgniter 是免费的
 ======================
 
-CodeIgniter 通过 MIT 开源许可协议授权，你可以任意使用。
-阅读 :doc:`许可协议 <../license>` 的内容了解更多。
+CodeIgniter 通过 MIT 开源许可协议授权，你可以任意使用。阅读 :doc:`许可协议 <../license>` 了解更多内容。
 
 CodeIgniter 是轻量级的
 ===========================

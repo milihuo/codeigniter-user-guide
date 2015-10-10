@@ -15,16 +15,11 @@
 XSS 过滤
 *************
 
-CodeIgniter 自带了一个 XSS 过滤器来防御攻击，它可以设置为自动运行过滤
-所有遇到的 POST 和 COOKIE 数据，也可以针对某一条数据进行过滤。默认情况下
-它不是全局运行的，因为它会有相当的开销，况且你并不是在所有地方都需要它。
-
-XSS 过滤器会查找那些常被用来触发 JavaScript 脚本或者其他类型的企图劫持
-Cookie 或者其它恶意行为的代码。如果发现任何不允许的内容，它将把那些内容
-转换为字符实体，以确保安全。
-
-注意：这个函数只应该用来处理那些提交过来的数据，它不适合在一般情况下使用，
-因为它的执行会有相当大的开销。
+CodeIgniter comes with a Cross Site Scripting prevention filter, which
+looks for commonly used techniques to trigger JavaScript or other types
+of code that attempt to hijack cookies or do other malicious things.
+If anything disallowed is encountered it is rendered safe by converting
+the data to character entities.
 
 使用 XSS 过滤器过滤数据可以使用 ``xss_clean()`` 方法::
 

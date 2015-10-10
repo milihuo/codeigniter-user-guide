@@ -54,6 +54,16 @@ CodeIgniter 用户指南
 
 	tutorial/index
 
+***************************
+贡献 CodeIgniter
+***************************
+
+.. toctree::
+	:glob:
+	:titlesonly:
+
+	contributing/index
+
 **************
 常规主题
 **************
@@ -93,16 +103,6 @@ CodeIgniter 用户指南
 	:titlesonly:
 
 	helpers/index
-
-***************************
-贡献 CodeIgniter
-***************************
-
-.. toctree::
-	:glob:
-	:titlesonly:
-
-	contributing/index
 
 .. toctree::
 	:glob:

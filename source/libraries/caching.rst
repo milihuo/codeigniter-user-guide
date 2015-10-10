@@ -17,8 +17,7 @@ CodeIgniter 提供了几种最常用的快速缓存的封装，除了基于文�
 使用示例
 *************
 
-下面的示例代码用于加载缓存驱动器，使用 `APC <#alternative-php-cache-apc-caching>`_ 作为缓存，
-如果 APC 在服务器环境下不可用，将降级到基于文件的缓存。
+下面的示例代码用于加载缓存驱动器，使用 `APC <#alternative-php-cache-apc-caching>`_ 作为缓存，如果 APC 在服务器环境下不可用，将降级到基于文件的缓存。
 
 ::
 

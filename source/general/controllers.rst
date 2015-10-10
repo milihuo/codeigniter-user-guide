@@ -127,8 +127,10 @@ CodeIgniter 可以设置一个默认的控制器，当 URI 没有分段参数时
 
 	$route['default_controller'] = 'blog';
 
-其中，Blog 是你想加载的控制器类名，如果你现在通过不带任何参数的 index.php 访问你的站点，你将看到你的
-Hello World 消息。
+其中，“Blog”是你想加载的控制器类名，如果你现在通过不带任何参数的 index.php 访问你的站点，你将看到你的“Hello World”消息。
+
+For more information, please refer to the "Reserved Routes" section of the
+:doc:`URI 路由 <routing>` documentation.
 
 重映射方法
 ======================
@@ -225,10 +227,9 @@ CodeIgniter 有一个输出类，它可以自动的将最终数据发送到你�
 将控制器放入子目录中
 ================================================
 
-如果你正在构建一个比较大的应用，那么将控制器放到子目录下进行组织可能会方便一点。CodeIgniter
-也可以实现这一点。
+如果你正在构建一个比较大的应用，那么将控制器放到子目录下进行组织可能会方便一点。CodeIgniter 也可以实现这一点。
 
-你只需要简单的在 *application/controllers/* 目录下创建新的目录，并将控制器类放到子目录下。
+你只需要简单的在 *application/controllers/* 目录下创建新的目录，并将控制器文件放到子目录下。
 
 .. note:: 当使用该功能时，URI 的第一段必须制定目录，例如，假设你在如下位置有一个控制器::
 
@@ -238,10 +239,12 @@ CodeIgniter 有一个输出类，它可以自动的将最终数据发送到你�
 
 		example.com/index.php/products/shoes/show/123
 
-每个子目录下都应该包含一个默认控制器，这样当 URL 中只有子目录路径时将会调用它。你可以在
-*application/config/routes.php* 文件中配置默认控制器。
+Each of your sub-directories may contain a default controller which will be
+called if the URL contains *only* the sub-directory. Simply put a controller
+in there that matches the name of your 'default_controller' as specified in
+your *application/config/routes.php* file.
 
-你也可以使用 CodeIgniter 的 :doc:`URI 路由 <routing>` 功能 来重定向 URI 。
+你也可以使用 CodeIgniter 的 :doc:`URI 路由 <routing>` 功能来重定向 URI 。
 
 构造函数
 ==================

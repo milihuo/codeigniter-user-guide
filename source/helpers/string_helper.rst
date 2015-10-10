@@ -4,6 +4,9 @@
 
 字符串辅助函数文件包含了一些帮助你处理字符串的函数。
 
+.. important:: Please note that these functions are NOT intended, nor
+	suitable to be used for any kind of security-related logic.
+
 .. contents::
   :local:
 

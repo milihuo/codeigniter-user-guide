@@ -49,22 +49,6 @@
 
 上面的 ``result_array()`` 函数返回一个**数组的数组**。譬如：``$row['title']``
 
-测试查询结果
-===================
-
-如果你的查询不返回结果，建议使用函数 ``num_rows()`` 来测试::
-
-	$query = $this->db->query("YOUR QUERY");
-	if ($query->num_rows() > 0)
-	{
-		foreach ($query->result() as $row)
-		{
-			echo $row->title;
-			echo $row->name;
-			echo $row->body;
-		}
-	}
-
 单结果标准查询（对象形式）
 =================================
 
