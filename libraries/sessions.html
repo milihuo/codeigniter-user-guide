@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -205,13 +212,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">排版辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL 辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML 辅助函数</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -820,7 +820,6 @@ Session 类将查找并使用老的 'sess_table_name' 参数替代。请不要�
     <span class="sb">`ip_address`</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
     <span class="sb">`timestamp`</span> <span class="nx">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="nx">unsigned</span> <span class="k">DEFAULT</span> <span class="mi">0</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
     <span class="sb">`data`</span> <span class="nx">blob</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-    <span class="nx">PRIMARY</span> <span class="nx">KEY</span> <span class="p">(</span><span class="nx">id</span><span class="p">),</span>
     <span class="nx">KEY</span> <span class="sb">`ci_sessions_timestamp`</span> <span class="p">(</span><span class="sb">`timestamp`</span><span class="p">)</span>
 <span class="p">);</span>
 </pre></div>
@@ -830,16 +829,22 @@ Session 类将查找并使用老的 'sess_table_name' 参数替代。请不要�
     <span class="s2">&quot;id&quot;</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
     <span class="s2">&quot;ip_address&quot;</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
     <span class="s2">&quot;timestamp&quot;</span> <span class="nx">bigint</span> <span class="k">DEFAULT</span> <span class="mi">0</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-    <span class="s2">&quot;data&quot;</span> <span class="nx">text</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-    <span class="nx">PRIMARY</span> <span class="nx">KEY</span> <span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="s2">&quot;data&quot;</span> <span class="nx">text</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span> <span class="k">NOT</span> <span class="k">NULL</span>
 <span class="p">);</span>
 
 <span class="nx">CREATE</span> <span class="nx">INDEX</span> <span class="s2">&quot;ci_sessions_timestamp&quot;</span> <span class="nx">ON</span> <span class="s2">&quot;ci_sessions&quot;</span> <span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>如果你想开启 <em>sess_match_ip</em> 参数，你还应该在新建表之后进行如下操作:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// Works both on MySQL and PostgreSQL</span>
-<span class="nx">ALTER</span> <span class="nx">TABLE</span> <span class="nx">ci_sessions</span> <span class="nx">ADD</span> <span class="nx">CONSTRAINT</span> <span class="nx">ci_sessions_id_ip</span> <span class="nx">UNIQUE</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">ip_address</span><span class="p">);</span>
+<p>You will also need to add a PRIMARY KEY <strong>depending on your 'sess_match_ip'
+setting</strong>. The examples below work both on MySQL and PostgreSQL:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="c1">// When sess_match_ip = TRUE</span>
+<span class="nx">ALTER</span> <span class="nx">TABLE</span> <span class="nx">ci_sessions</span> <span class="nx">ADD</span> <span class="nx">PRIMARY</span> <span class="nx">KEY</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">ip_address</span><span class="p">);</span>
+
+<span class="c1">// When sess_match_ip = FALSE</span>
+<span class="nx">ALTER</span> <span class="nx">TABLE</span> <span class="nx">ci_sessions</span> <span class="nx">ADD</span> <span class="nx">PRIMARY</span> <span class="nx">KEY</span> <span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+<span class="c1">// To drop a previously created primary key (use when changing the setting)</span>
+<span class="nx">ALTER</span> <span class="nx">TABLE</span> <span class="nx">ci_sessions</span> <span class="nx">DROP</span> <span class="nx">PRIMARY</span> <span class="nx">KEY</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition important">
@@ -1561,7 +1566,7 @@ CodeIgniter 会在你运行老版本的 PHP 时自动声明这个接口。</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -1592,7 +1597,7 @@ CodeIgniter 会在你运行老版本的 PHP 时自动声明这个接口。</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

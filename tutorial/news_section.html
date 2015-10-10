@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -208,13 +215,6 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -272,8 +272,7 @@
 </div>
 <p>这个代码和之前的控制器的代码有点类似，它通过继承 <tt class="docutils literal"><span class="pre">CI_Model</span></tt> 创建了一个新模型，
 并加载了数据库类。数据库类可以通过 <tt class="docutils literal"><span class="pre">$this-&gt;db</span></tt> 对象访问。</p>
-<p>在查询数据库之前，我们要先创建一个数据库表。连接你的数据库，运行下面的 SQL 语句
-（MySQL），并添加一些测试数据。</p>
+<p>在查询数据库之前，我们要先创建一个数据库表。连接你的数据库，运行下面的 SQL 语句（MySQL），并添加一些测试数据。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nx">CREATE</span> <span class="nx">TABLE</span> <span class="nx">news</span> <span class="p">(</span>
     <span class="nx">id</span> <span class="nx">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="nx">AUTO_INCREMENT</span><span class="p">,</span>
     <span class="nx">title</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
@@ -475,7 +474,7 @@
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -506,7 +505,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -205,13 +212,6 @@
 <li class="toctree-l2"><a class="reference internal" href="typography_helper.html">排版辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="url_helper.html">URL 辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="xml_helper.html">XML 辅助函数</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -475,7 +475,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>array</em>) -- Field attributes data</li>
 <li><strong>$value</strong> (<em>string</em>) -- Field value</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -515,6 +515,11 @@
 <span class="k">echo</span> <span class="nx">form_input</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;johndoe&#39;</span><span class="p">,</span> <span class="nv">$js</span><span class="p">);</span>
 </pre></div>
 </div>
+<p>Or you can pass it as an array:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$js</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;onClick&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;some_function();&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nx">form_input</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;johndoe&#39;</span><span class="p">,</span> <span class="nv">$js</span><span class="p">);</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -527,7 +532,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>array</em>) -- Field attributes data</li>
 <li><strong>$value</strong> (<em>string</em>) -- Field value</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -552,7 +557,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>array</em>) -- Field attributes data</li>
 <li><strong>$value</strong> (<em>string</em>) -- Field value</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -578,7 +583,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>array</em>) -- Field attributes data</li>
 <li><strong>$value</strong> (<em>string</em>) -- Field value</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -609,7 +614,7 @@
 <li><strong>$name</strong> (<em>string</em>) -- Field name</li>
 <li><strong>$options</strong> (<em>array</em>) -- An associative array of options to be listed</li>
 <li><strong>$selected</strong> (<em>array</em>) -- List of fields to mark with the <em>selected</em> attribute</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -666,6 +671,14 @@
 <span class="k">echo</span> <span class="nx">form_dropdown</span><span class="p">(</span><span class="s1">&#39;shirts&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="nv">$js</span><span class="p">);</span>
 </pre></div>
 </div>
+<p>Or you can pass it as an array:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$js</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;id&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;shirts&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;onChange&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;some_function();&#39;</span>
+<span class="p">);</span>
+<span class="k">echo</span> <span class="nx">form_dropdown</span><span class="p">(</span><span class="s1">&#39;shirts&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="nv">$js</span><span class="p">);</span>
+</pre></div>
+</div>
 <p>如果你传递的 <tt class="docutils literal"><span class="pre">$options</span></tt> 数组是个多维数组，<tt class="docutils literal"><span class="pre">form_dropdown()</span></tt> 函数将会生成带
 &lt;optgroup&gt; 的下拉框，并使用数组的键作为 label 。</p>
 </dd></dl>
@@ -681,7 +694,7 @@
 <li><strong>$name</strong> (<em>string</em>) -- Field name</li>
 <li><strong>$options</strong> (<em>array</em>) -- An associative array of options to be listed</li>
 <li><strong>$selected</strong> (<em>array</em>) -- List of fields to mark with the <em>selected</em> attribute</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -798,7 +811,7 @@
 <li><strong>$data</strong> (<em>array</em>) -- Field attributes data</li>
 <li><strong>$value</strong> (<em>string</em>) -- Field value</li>
 <li><strong>$checked</strong> (<em>bool</em>) -- Whether to mark the checkbox as being <em>checked</em></li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -834,6 +847,11 @@
 <span class="k">echo</span> <span class="nx">form_checkbox</span><span class="p">(</span><span class="s1">&#39;newsletter&#39;</span><span class="p">,</span> <span class="s1">&#39;accept&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="nv">$js</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Or you can pass it as an array:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$js</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;onClick&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;some_function();&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nx">form_checkbox</span><span class="p">(</span><span class="s1">&#39;newsletter&#39;</span><span class="p">,</span> <span class="s1">&#39;accept&#39;</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="nv">$js</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -847,7 +865,7 @@
 <li><strong>$data</strong> (<em>array</em>) -- Field attributes data</li>
 <li><strong>$value</strong> (<em>string</em>) -- Field value</li>
 <li><strong>$checked</strong> (<em>bool</em>) -- Whether to mark the radio button as being <em>checked</em></li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -912,7 +930,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>string</em>) -- Button name</li>
 <li><strong>$value</strong> (<em>string</em>) -- Button value</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -943,7 +961,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>string</em>) -- Button name</li>
 <li><strong>$value</strong> (<em>string</em>) -- Button value</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -968,7 +986,7 @@
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$data</strong> (<em>string</em>) -- Button name</li>
 <li><strong>$content</strong> (<em>string</em>) -- Button label</li>
-<li><strong>$extra</strong> (<em>string</em>) -- Extra attributes to be added to the tag <em>as is</em></li>
+<li><strong>$extra</strong> (<em>mixed</em>) -- Extra attributes to be added to the tag either as an array or a literal string</li>
 </ul>
 </td>
 </tr>
@@ -1062,7 +1080,15 @@ echo form_close($string);
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;quantity&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?php echo set_value(&#39;quantity&#39;, &#39;0&#39;); ?&gt;&quot;</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&quot;50&quot;</span> <span class="o">/&gt;</span>
 </pre></div>
 </div>
-<p>当上面的表单元素第一次加载时将会显示 &quot;0&quot; 。</p>
+<p>当上面的表单元素第一次加载时将会显示“0”。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you've loaded the <a class="reference internal" href="../libraries/form_validation.html"><em>表单验证类</em></a> and
+have set a validation rule for the field name in use with this helper, then it will
+forward the call to the <a class="reference internal" href="../libraries/form_validation.html"><em>表单验证类</em></a>'s
+own <tt class="docutils literal"><span class="pre">set_value()</span></tt> method. Otherwise, this function looks in <tt class="docutils literal"><span class="pre">$_POST</span></tt> for the
+field value.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -1335,7 +1361,7 @@ echo form_close($string);
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -1366,7 +1392,7 @@ echo form_close($string);
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

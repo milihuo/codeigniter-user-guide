@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -208,13 +215,6 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -261,14 +261,11 @@
 </div>
 <div class="custom-index container"></div><div class="section" id="xss">
 <h2><a class="toc-backref" href="#id3">XSS 过滤</a><a class="headerlink" href="#xss" title="永久链接至标题">¶</a></h2>
-<p>CodeIgniter 自带了一个 XSS 过滤器来防御攻击，它可以设置为自动运行过滤
-所有遇到的 POST 和 COOKIE 数据，也可以针对某一条数据进行过滤。默认情况下
-它不是全局运行的，因为它会有相当的开销，况且你并不是在所有地方都需要它。</p>
-<p>XSS 过滤器会查找那些常被用来触发 JavaScript 脚本或者其他类型的企图劫持
-Cookie 或者其它恶意行为的代码。如果发现任何不允许的内容，它将把那些内容
-转换为字符实体，以确保安全。</p>
-<p>注意：这个函数只应该用来处理那些提交过来的数据，它不适合在一般情况下使用，
-因为它的执行会有相当大的开销。</p>
+<p>CodeIgniter comes with a Cross Site Scripting prevention filter, which
+looks for commonly used techniques to trigger JavaScript or other types
+of code that attempt to hijack cookies or do other malicious things.
+If anything disallowed is encountered it is rendered safe by converting
+the data to character entities.</p>
 <p>使用 XSS 过滤器过滤数据可以使用 <tt class="docutils literal"><span class="pre">xss_clean()</span></tt> 方法:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">security</span><span class="o">-&gt;</span><span class="na">xss_clean</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 </pre></div>
@@ -535,7 +532,7 @@ HTML 实体，因为有些浏览器允许这样。</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -566,7 +563,7 @@ HTML 实体，因为有些浏览器允许这样。</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -205,13 +212,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">排版辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL 辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML 辅助函数</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -773,17 +773,17 @@ outer 和 right outer 。</p>
 <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get_compiled_insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$sql</span><span class="p">;</span>
 
-<span class="c1">// Produces string: INSERT INTO mytable (title, name, date) VALUES (&#39;My title&#39;, &#39;My name&#39;, &#39;My date&#39;)</span>
+<span class="c1">// Produces string: INSERT INTO mytable (`title`, `name`, `date`) VALUES (&#39;My title&#39;, &#39;My name&#39;, &#39;My date&#39;)</span>
 </pre></div>
 </div>
 <p>第二个参数用于设置是否重置查询（默认情况下会重置，正如 $this-&gt;db-&gt;insert() 方法一样）:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;My Title&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get_compiled_insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
 
-<span class="c1">// Produces string: INSERT INTO mytable (title) VALUES (&#39;My Title&#39;)</span>
+<span class="c1">// Produces string: INSERT INTO mytable (`title`) VALUES (&#39;My Title&#39;)</span>
 
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;My Content&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">get_compiled_insert</span><span class="p">();</span>
 
-<span class="c1">// Produces string: INSERT INTO mytable (title, content) VALUES (&#39;My Title&#39;, &#39;My Content&#39;)</span>
+<span class="c1">// Produces string: INSERT INTO mytable (`title`, `content`) VALUES (&#39;My Title&#39;, &#39;My Content&#39;)</span>
 </pre></div>
 </div>
 <p>上面的例子中，最值得注意的是，第二个查询并没有用到 <strong>$this-&gt;db-&gt;from()</strong> 方法，
@@ -846,7 +846,7 @@ outer 和 right outer 。</p>
 <p>该方法用于设置新增或更新的数据。</p>
 <p><strong>该方法可以取代直接传递数据数组到 insert 或 update 方法：</strong></p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span>  <span class="c1">// Produces: INSERT INTO mytable (name) VALUES (&#39;{$name}&#39;)</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span>  <span class="c1">// Produces: INSERT INTO mytable (`name`) VALUES (&#39;{$name}&#39;)</span>
 </pre></div>
 </div>
 <p>如果你多次调用该方法，它会正确组装出 INSERT 或 UPDATE 语句来:</p>
@@ -856,12 +856,14 @@ outer 和 right outer 。</p>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><strong>set()</strong> 方法也接受可选的第三个参数（$escape），如果设置为 FALSE，数据将不会自动转义。
-为了说明两者之间的区别，这里有一个带转义的 set() 方法和不带转义的例子。</p>
+<p><strong>set()</strong> 方法也接受可选的第三个参数（<tt class="docutils literal"><span class="pre">$escape</span></tt>），如果设置为 FALSE，数据将不会自动转义。为了说明两者之间的区别，这里有一个带转义的 <tt class="docutils literal"><span class="pre">set()</span></tt> 方法和不带转义的例子。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">,</span> <span class="s1">&#39;field+1&#39;</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span> <span class="c1">// gives INSERT INTO mytable (field) VALUES (field+1)</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span> <span class="c1">// gives UPDATE mytable SET field = field+1 WHERE id = 2</span>
+
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">,</span> <span class="s1">&#39;field+1&#39;</span><span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span> <span class="c1">// gives INSERT INTO mytable (field) VALUES (&#39;field+1&#39;)</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">);</span> <span class="c1">// gives UPDATE `mytable` SET `field` = &#39;field+1&#39; WHERE `id` = 2</span>
 </pre></div>
 </div>
 <p>你也可以传一个关联数组作为参数:</p>
@@ -890,8 +892,7 @@ outer 和 right outer 。</p>
 </pre></div>
 </div>
 <p><strong>$this-&gt;db-&gt;update()</strong></p>
-<p>该方法根据你提供的数据生成一条 UPDATE 语句并执行，它的参数是一个**数组**
-或一个**对象**，下面是使用数组的例子:</p>
+<p>该方法根据你提供的数据生成一条 UPDATE 语句并执行，它的参数是一个 <strong>数组</strong> 或一个 <strong>对象</strong> ，下面是使用数组的例子:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$title</span><span class="p">,</span>
     <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
@@ -900,7 +901,11 @@ outer 和 right outer 。</p>
 
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-<span class="c1">// Produces: // UPDATE mytable  // SET title = &#39;{$title}&#39;, name = &#39;{$name}&#39;, date = &#39;{$date}&#39; // WHERE id = $id</span>
+<span class="c1">// Produces:</span>
+<span class="c1">//</span>
+<span class="c1">//  UPDATE mytable</span>
+<span class="c1">//  SET title = &#39;{$title}&#39;, name = &#39;{$name}&#39;, date = &#39;{$date}&#39;</span>
+<span class="c1">//  WHERE id = $id</span>
 </pre></div>
 </div>
 <p>或者你可以使用一个对象:</p>
@@ -915,7 +920,11 @@ outer 和 right outer 。</p>
 <span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Myclass</span><span class="p">;</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nv">$id</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="s1">&#39;mytable&#39;</span><span class="p">,</span> <span class="nv">$object</span><span class="p">);</span>
-<span class="c1">// Produces: // UPDATE mytable  // SET title = &#39;{$title}&#39;, name = &#39;{$name}&#39;, date = &#39;{$date}&#39; // WHERE id = $id</span>
+<span class="c1">// Produces:</span>
+<span class="c1">//</span>
+<span class="c1">// UPDATE `mytable`</span>
+<span class="c1">// SET `title` = &#39;{$title}&#39;, `name` = &#39;{$name}&#39;, `date` = &#39;{$date}&#39;</span>
+<span class="c1">// WHERE id = `$id`</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1506,7 +1515,7 @@ a DISTINCT clause to the SELECT portion of the query.</p>
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$key</strong> (<em>mixed</em>) -- Name of field to compare, or associative array</li>
 <li><strong>$value</strong> (<em>mixed</em>) -- If a single key, compared to this value</li>
-<li><strong>$escape</strong> (<em>boolean</em>) -- Whether to escape values and identifiers</li>
+<li><strong>$escape</strong> (<em>bool</em>) -- Whether to escape values and identifiers</li>
 </ul>
 </td>
 </tr>
@@ -1534,7 +1543,7 @@ a DISTINCT clause to the SELECT portion of the query.</p>
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$key</strong> (<em>mixed</em>) -- Name of field to compare, or associative array</li>
 <li><strong>$value</strong> (<em>mixed</em>) -- If a single key, compared to this value</li>
-<li><strong>$escape</strong> (<em>boolean</em>) -- Whether to escape values and identifiers</li>
+<li><strong>$escape</strong> (<em>bool</em>) -- Whether to escape values and identifiers</li>
 </ul>
 </td>
 </tr>
@@ -1562,7 +1571,7 @@ a DISTINCT clause to the SELECT portion of the query.</p>
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$key</strong> (<em>string</em>) -- The field to search</li>
 <li><strong>$values</strong> (<em>array</em>) -- The values searched on</li>
-<li><strong>$escape</strong> (<em>boolean</em>) -- Whether to escape identifiers</li>
+<li><strong>$escape</strong> (<em>bool</em>) -- Whether to escape identifiers</li>
 </ul>
 </td>
 </tr>
@@ -1590,7 +1599,7 @@ a DISTINCT clause to the SELECT portion of the query.</p>
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$key</strong> (<em>string</em>) -- The field to search</li>
 <li><strong>$values</strong> (<em>array</em>) -- The values searched on</li>
-<li><strong>$escape</strong> (<em>boolean</em>) -- Whether to escape identifiers</li>
+<li><strong>$escape</strong> (<em>bool</em>) -- Whether to escape identifiers</li>
 </ul>
 </td>
 </tr>
@@ -1618,7 +1627,7 @@ a DISTINCT clause to the SELECT portion of the query.</p>
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$key</strong> (<em>string</em>) -- Name of field to examine</li>
 <li><strong>$values</strong> (<em>array</em>) -- Array of target values</li>
-<li><strong>$escape</strong> (<em>boolean</em>) -- Whether to escape identifiers</li>
+<li><strong>$escape</strong> (<em>bool</em>) -- Whether to escape identifiers</li>
 </ul>
 </td>
 </tr>
@@ -1646,7 +1655,7 @@ a DISTINCT clause to the SELECT portion of the query.</p>
 <tr class="field-odd field"><th class="field-name">参数:</th><td class="field-body"><ul class="first simple">
 <li><strong>$key</strong> (<em>string</em>) -- Name of field to examine</li>
 <li><strong>$values</strong> (<em>array</em>) -- Array of target values</li>
-<li><strong>$escape</strong> (<em>boolean</em>) -- Whether to escape identifiers</li>
+<li><strong>$escape</strong> (<em>bool</em>) -- Whether to escape identifiers</li>
 </ul>
 </td>
 </tr>
@@ -2431,7 +2440,7 @@ a DELETE statement will be used instead.</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -2462,7 +2471,7 @@ a DELETE statement will be used instead.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -208,13 +215,6 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -292,23 +292,7 @@
 <p>上面的 <tt class="docutils literal"><span class="pre">result_array()</span></tt> 函数返回一个**数组的数组**。譬如：<tt class="docutils literal"><span class="pre">$row['title']</span></tt></p>
 </div>
 <div class="section" id="id5">
-<h2>测试查询结果<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
-<p>如果你的查询不返回结果，建议使用函数 <tt class="docutils literal"><span class="pre">num_rows()</span></tt> 来测试:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">num_rows</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2>单结果标准查询（对象形式）<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2>单结果标准查询（对象形式）<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT name FROM my_table LIMIT 1&#39;</span><span class="p">);</span>
 <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">();</span>
 <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
@@ -316,8 +300,8 @@
 </div>
 <p>上面的 <tt class="docutils literal"><span class="pre">row()</span></tt> 函数返回一个**对象**。譬如：<tt class="docutils literal"><span class="pre">$row-&gt;name</span></tt></p>
 </div>
-<div class="section" id="id7">
-<h2>单结果标准查询（数组形式）<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h2>单结果标准查询（数组形式）<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT name FROM my_table LIMIT 1&#39;</span><span class="p">);</span>
 <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">row_array</span><span class="p">();</span>
 <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
@@ -325,16 +309,16 @@
 </div>
 <p>上面的 <tt class="docutils literal"><span class="pre">row_array()</span></tt> 函数返回一个**数组**。譬如：<tt class="docutils literal"><span class="pre">$row['name']</span></tt></p>
 </div>
-<div class="section" id="id8">
-<h2>标准插入<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h2>标准插入<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO mytable (title, name) VALUES (&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;)&quot;</span><span class="p">;</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
 <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">affected_rows</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>使用查询构造器查询数据<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h2>使用查询构造器查询数据<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p><a class="reference internal" href="query_builder.html"><em>查询构造器模式</em></a> 提供给我们一种简单的查询数据的途径:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
 
@@ -346,8 +330,8 @@
 </div>
 <p>上面的 <tt class="docutils literal"><span class="pre">get()</span></tt> 函数从给定的表中查询出所有的结果。<a class="reference internal" href="query_builder.html"><em>查询构造器</em></a> 提供了所有数据库操作的快捷函数。</p>
 </div>
-<div class="section" id="id10">
-<h2>使用查询构造器插入数据<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h2>使用查询构造器插入数据<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$title</span><span class="p">,</span>
     <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">,</span>
@@ -423,7 +407,7 @@
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -454,7 +438,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

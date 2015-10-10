@@ -97,6 +97,13 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">常规主题</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="urls.html">CodeIgniter URL</a></li>
@@ -205,13 +212,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">排版辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL 辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML 辅助函数</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -390,15 +390,21 @@ URL 中对应的那样。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;default_controller&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;welcome&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>这个路由表示当用户不带任何参数直接访问你的网站时该加载哪个控制器，
-上例中，将会加载 &quot;welcome&quot; 类。你应该永远都有个默认的路由，要不然
-会显示 404 页面。</p>
+<p>This route points to the action that should be executed if the URI contains
+no data, which will be the case when people load your root URL.
+The setting accepts a <strong>controller/method</strong> value and <tt class="docutils literal"><span class="pre">index()</span></tt> would be
+the default method if you don't specify one. In the above example, it is
+<tt class="docutils literal"><span class="pre">Welcome::index()</span></tt> that would be called.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">You can NOT use a directory as a part of this setting!</p>
+</div>
+<p>You are encouraged to always have a default route as otherwise a 404 page
+will appear by default.</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;404_override&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>这个路由表示当用户请求了一个不存在的页面时该加载哪个控制器，它将会覆盖
-默认的 404 错误页面。<tt class="docutils literal"><span class="pre">show_404()</span></tt> 函数不会受影响，它还是会继续加载
-<em>application/views/errors/</em> 目录下的默认的 <em>error_404.php</em> 文件。</p>
+<p>这个路由表示当用户请求了一个不存在的页面时该加载哪个控制器，它将会覆盖默认的 404 错误页面。Same per-directory rules as with 'default_controller' apply here as well. <tt class="docutils literal"><span class="pre">show_404()</span></tt> 函数不会受影响，它还是会继续加载 <em>application/views/errors/</em> 目录下的默认的 <em>error_404.php</em> 文件。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;translate_uri_dashes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -472,7 +478,7 @@ URL 中对应的那样。</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -503,7 +509,7 @@ URL 中对应的那样。</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

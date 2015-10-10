@@ -98,6 +98,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">控制器</a></li>
@@ -208,13 +215,6 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -254,14 +254,15 @@
 <p>有几种不同方法可以生成查询结果：</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id5">结果数组</a></li>
-<li><a class="reference internal" href="#id3" id="id6">结果行</a></li>
-<li><a class="reference internal" href="#id4" id="id7">结果辅助方法</a></li>
-<li><a class="reference internal" href="#class-reference" id="id8">Class Reference</a></li>
+<li><a class="reference internal" href="#id2" id="id6">结果数组</a></li>
+<li><a class="reference internal" href="#id3" id="id7">结果行</a></li>
+<li><a class="reference internal" href="#id4" id="id8">自定义结果对象</a></li>
+<li><a class="reference internal" href="#id5" id="id9">结果辅助方法</a></li>
+<li><a class="reference internal" href="#class-reference" id="id10">Class Reference</a></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">结果数组</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">结果数组</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p><strong>result()</strong> 方法</p>
 <p>该方法以**对象数组**形式返回查询结果，如果查询失败返回**空数组**。
 一般情况下，你会像下面这样在一个 foreach 循环中使用它:</p>
@@ -276,23 +277,7 @@
 </pre></div>
 </div>
 <p>该方法是 <tt class="docutils literal"><span class="pre">result_object()</span></tt> 方法的别名。</p>
-<p>如果你的查询可能会没有结果，推荐在处理结果之前，先使用方法
-<tt class="docutils literal"><span class="pre">num_rows()</span></tt> 检验一下:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">num_rows</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>你还可以传一个字符串参数给 <tt class="docutils literal"><span class="pre">result()</span></tt> 方法，这个字符串参数代表
-你想要把每个结果转换成某个类的类名（这个类必须已经加载）</p>
+<p>你还可以传一个字符串参数给 <tt class="docutils literal"><span class="pre">result()</span></tt> 方法，这个字符串参数代表你想要把每个结果转换成某个类的类名（这个类必须已经加载）</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users;&quot;</span><span class="p">);</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span>
@@ -303,8 +288,7 @@
 </pre></div>
 </div>
 <p><strong>result_array()</strong> 方法</p>
-<p>这个方法以**一个纯粹的数组**形式返回查询结果，如果无结果，则返回一个空数组。
-一般情况下，你会像下面这样在一个 foreach 循环中使用它:</p>
+<p>这个方法以 <strong>一个纯粹的数组</strong> 形式返回查询结果，如果无结果，则返回一个空数组。一般情况下，你会像下面这样在一个 foreach 循环中使用它:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">result_array</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span>
@@ -317,16 +301,15 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">结果行</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">结果行</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p><strong>row()</strong> 方法</p>
-<p>这个方法返回单独一行结果。如果你的查询不止一行结果，它只返回第一行。
-返回的结果是**对象**形式，这里是用例:</p>
+<p>这个方法返回单独一行结果。如果你的查询不止一行结果，它只返回第一行。返回的结果是 <strong>对象</strong> 形式，这里是用例:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">num_rows</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">();</span>
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">row</span><span class="p">();</span>
 
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$row</span><span class="p">))</span>
+<span class="p">{</span>
     <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
     <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
     <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">;</span>
@@ -346,14 +329,13 @@
 </pre></div>
 </div>
 <p><strong>row_array()</strong> 方法</p>
-<p>这个方法除了返回结果是一个数组而不是一个对象之外，其他的和上面的 <tt class="docutils literal"><span class="pre">row()</span></tt> 方法完全一样。
-举例:</p>
+<p>这个方法除了返回结果是一个数组而不是一个对象之外，其他的和上面的 <tt class="docutils literal"><span class="pre">row()</span></tt> 方法完全一样。举例:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">num_rows</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">row_array</span><span class="p">();</span>
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">row_array</span><span class="p">();</span>
 
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$row</span><span class="p">))</span>
+<span class="p">{</span>
     <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">];</span>
     <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
     <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">];</span>
@@ -409,7 +391,87 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id7">结果辅助方法</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">自定义结果对象</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>You can have the results returned as an instance of a custom class instead
+of a <tt class="docutils literal"><span class="pre">stdClass</span></tt> or array, as the <tt class="docutils literal"><span class="pre">result()</span></tt> and <tt class="docutils literal"><span class="pre">result_array()</span></tt>
+methods allow. This requires that the class is already loaded into memory.
+The object will have all values returned from the database set as properties.
+If these have been declared and are non-public then you should provide a
+<tt class="docutils literal"><span class="pre">__set()</span></tt> method to allow them to be set.</p>
+<p>Example:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$email</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$username</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$last_login</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">last_login</span><span class="p">(</span><span class="nv">$format</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">last_login</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$format</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$name</span> <span class="o">===</span> <span class="s1">&#39;last_login&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">last_login</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$name</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$name</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In addition to the two methods listed below, the following methods also can
+take a class name to return the results as: <tt class="docutils literal"><span class="pre">first_row()</span></tt>, <tt class="docutils literal"><span class="pre">last_row()</span></tt>,
+<tt class="docutils literal"><span class="pre">next_row()</span></tt>, and <tt class="docutils literal"><span class="pre">previous_row()</span></tt>.</p>
+<p><strong>custom_result_object()</strong></p>
+<p>Returns the entire result set as an array of instances of the class requested.
+The only parameter is the name of the class to instantiate.</p>
+<p>Example:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
+
+<span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">custom_result_object</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$rows</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">last_login</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>custom_row_object()</strong></p>
+<p>Returns a single row from your query results. The first parameter is the row
+number of the results. The second parameter is the class name to instantiate.</p>
+<p>Example:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">&quot;YOUR QUERY&quot;</span><span class="p">);</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">custom_row_object</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;User&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$row</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>   <span class="c1">// access attributes</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">last_login</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">);</span>   <span class="c1">// access class methods</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also use the <tt class="docutils literal"><span class="pre">row()</span></tt> method in exactly the same way.</p>
+<p>Example:</p>
+<div class="highlight-ci"><div class="highlight"><pre><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">custom_row_object</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;User&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id9">结果辅助方法</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p><strong>num_rows()</strong> 方法</p>
 <p>该方法返回查询结果的行数。注意：在这个例子中，<tt class="docutils literal"><span class="pre">$query</span></tt> 变量为查询结果对象:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$query</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM my_table&#39;</span><span class="p">);</span>
@@ -466,7 +528,7 @@ PHP 会在脚本执行结束后自动释放内存。但是，如果你在某个�
 </div>
 </div>
 <div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id8">Class Reference</a><a class="headerlink" href="#class-reference" title="永久链接至标题">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Class Reference</a><a class="headerlink" href="#class-reference" title="永久链接至标题">¶</a></h2>
 <dl class="class">
 <dt id="CI_DB_result">
 <em class="property">class </em><tt class="descname">CI_DB_result</tt><a class="headerlink" href="#CI_DB_result" title="永久链接至目标">¶</a></dt>
@@ -699,7 +761,7 @@ requested class.</p>
 </tbody>
 </table>
 <p>Moves the internal results row pointer to the desired offset.</p>
-<p>Usage: see <a class="reference internal" href="#id4">结果辅助方法</a>.</p>
+<p>Usage: see <a class="reference internal" href="#id5">结果辅助方法</a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -829,7 +891,7 @@ requested class.</p>
 </tbody>
 </table>
 <p>Returns the number of rows in the result set.</p>
-<p>Usage: see <a class="reference internal" href="#id4">结果辅助方法</a>.</p>
+<p>Usage: see <a class="reference internal" href="#id5">结果辅助方法</a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -846,7 +908,7 @@ requested class.</p>
 </tbody>
 </table>
 <p>Returns the number of fields in the result set.</p>
-<p>Usage: see <a class="reference internal" href="#id4">结果辅助方法</a>.</p>
+<p>Usage: see <a class="reference internal" href="#id5">结果辅助方法</a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -878,7 +940,7 @@ field meta-data.</p>
 </tbody>
 </table>
 <p>Frees a result set.</p>
-<p>Usage: see <a class="reference internal" href="#id4">结果辅助方法</a>.</p>
+<p>Usage: see <a class="reference internal" href="#id5">结果辅助方法</a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -962,7 +1024,7 @@ result set.</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -993,7 +1055,7 @@ result set.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

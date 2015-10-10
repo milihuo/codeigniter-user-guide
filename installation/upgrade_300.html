@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Upgrading from 2.2.x to 3.0.0 &mdash; CodeIgniter 3.0.0 中文手册|用户手册|用户指南|中文文档</title>
+  <title>Upgrading from 2.2.x to 3.0.x &mdash; CodeIgniter 3.0.0 中文手册|用户手册|用户指南|中文文档</title>
   
 
   
@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="../_static/css/theme_cn.css" type="text/css" />
     <link rel="top" title="CodeIgniter 3.0.0 中文手册|用户手册|用户指南|中文文档" href="../index.html"/>
         <link rel="up" title="从老版本升级" href="upgrading.html"/>
-        <link rel="next" title="Upgrading from 2.2.0 to 2.2.1" href="upgrade_221.html"/>
-        <link rel="prev" title="从老版本升级" href="upgrading.html"/> 
+        <link rel="next" title="Upgrading from 2.2.2 to 2.2.3" href="upgrade_223.html"/>
+        <link rel="prev" title="Upgrading from 3.0.0 to 3.0.1" href="upgrade_301.html"/> 
 
   
   <script src="../_static/js/modernizr.2.6.2.min.js"></script>
@@ -94,6 +94,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">读取新闻条目</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">创建新闻条目</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">结束语</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -208,13 +215,6 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -242,7 +242,7 @@
     
     <li><a href="upgrading.html">从老版本升级</a> &raquo; </li>
     
-    <li>Upgrading from 2.2.x to 3.0.0</li>
+    <li>Upgrading from 2.2.x to 3.0.x</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -251,8 +251,8 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="upgrading-from-2-2-x-to-3-0-0">
-<h1>Upgrading from 2.2.x to 3.0.0<a class="headerlink" href="#upgrading-from-2-2-x-to-3-0-0" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="upgrading-from-2-2-x-to-3-0-x">
+<h1>Upgrading from 2.2.x to 3.0.x<a class="headerlink" href="#upgrading-from-2-2-x-to-3-0-x" title="永久链接至标题">¶</a></h1>
 <p>Before performing an update you should take your site offline by replacing the index.php file with a static one.</p>
 <div class="section" id="step-1-update-your-codeigniter-files">
 <h2>Step 1: Update your CodeIgniter files<a class="headerlink" href="#step-1-update-your-codeigniter-files" title="永久链接至标题">¶</a></h2>
@@ -478,8 +478,7 @@ cause your 'Main' controller to be loaded.</p>
 <p>However, what happens if you have an <em>application/controllers/admin/</em>
 directory and the user visits <tt class="docutils literal"><span class="pre">http://example.com/admin/</span></tt>?
 In CodeIgniter 3, the router will look for a 'Main' controller under the
-admin/ directory as well. If not found, it will fallback to the parent
-(<em>application/controllers/</em>) directory, like in version 2.x.</p>
+admin/ directory as well. If not found, a Not Found (404) will be triggered.</p>
 <p>The same rule applies to the '404_override' setting.</p>
 </div>
 </div>
@@ -1038,10 +1037,10 @@ in order to avoid backwards compatibility with old browsers:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="upgrade_221.html" class="btn btn-neutral float-right" title="Upgrading from 2.2.0 to 2.2.1">下一个主题 <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="upgrade_223.html" class="btn btn-neutral float-right" title="Upgrading from 2.2.2 to 2.2.3">下一个主题 <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="upgrading.html" class="btn btn-neutral" title="从老版本升级"><span class="fa fa-arrow-circle-left"></span> 上一个主题</a>
+        <a href="upgrade_301.html" class="btn btn-neutral" title="Upgrading from 3.0.0 to 3.0.1"><span class="fa fa-arrow-circle-left"></span> 上一个主题</a>
       
     </div>
   
@@ -1050,11 +1049,11 @@ in order to avoid backwards compatibility with old browsers:</p>
   <div id="notes">
   
   <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="userguide3/installation/upgrade_300" data-title="Upgrading from 2.2.x to 3.0.0" data-url="http://codeigniter.org.cn/user_guide/installation/upgrade_300.html"></div>
+    <div class="ds-thread" data-thread-key="userguide3/installation/upgrade_300" data-title="Upgrading from 2.2.x to 3.0.x" data-url="http://codeigniter.org.cn/user_guide/installation/upgrade_300.html"></div>
   <!-- 多说评论框 end -->
   
 
-  <div class="ds-share flat" data-thread-key="userguide3/installation/upgrade_300" data-title="Upgrading from 2.2.x to 3.0.0 &mdash; CodeIgniter 3.0.0 中文手册|用户手册|用户指南|中文文档" data-url="http://codeigniter.org.cn/user_guide/installation/upgrade_300.html" data-images="" data-content="">
+  <div class="ds-share flat" data-thread-key="userguide3/installation/upgrade_300" data-title="Upgrading from 2.2.x to 3.0.x &mdash; CodeIgniter 3.0.0 中文手册|用户手册|用户指南|中文文档" data-url="http://codeigniter.org.cn/user_guide/installation/upgrade_300.html" data-images="" data-content="">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
 
@@ -1091,7 +1090,7 @@ in order to avoid backwards compatibility with old browsers:</p>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -1122,7 +1121,7 @@ in order to avoid backwards compatibility with old browsers:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

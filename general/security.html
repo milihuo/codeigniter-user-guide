@@ -97,6 +97,13 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">常规主题</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="urls.html">CodeIgniter URL</a></li>
@@ -205,13 +212,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">排版辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL 辅助函数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML 辅助函数</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer's Certificate of Origin 1.1</a></li>
 </ul>
 </li>
 </ul>
@@ -351,11 +351,9 @@ XSS 过滤器在 <a class="reference internal" href="../libraries/security.html"
 一次性的（这点很重要）密码，然后把这个密码发送给用户。</p>
 </li>
 <li><p class="first">绝不要对用户的密码做一些没必要的限制。</p>
-<p>如果你使用除 BCrypt （它有最多 72 字符的限制）之外的其他哈希算法，你应该设置一个相对
-长一点的密码长度（例如 1024 字符），这样可以缓解 DoS 攻击 。（这样可以缓解 DoS 攻击？）</p>
-<p>但是除此之外，对密码的其他限制诸如密码中只允许使用某些字符，或者密码中不允许包含某些字符，
-就没有任何意义了。</p>
-<p>这样做不仅不会提高安全性，反而降低了安全性，而且真的没有任何理由需要这样做。
+<p>如果你使用除 BCrypt（它有最多 72 字符的限制）之外的其他哈希算法，你应该设置一个相对长一点的密码长度（例如 1024 字符），这样可以缓解 DoS 攻击。</p>
+<p>但是除此之外，对密码的其他限制诸如密码中只允许使用某些字符，或者密码中不允许包含某些字符，就没有任何意义了。</p>
+<p>这样做不仅不会提高安全性，反而 <strong>降低了</strong> 安全性，而且真的没有任何理由需要这样做。
 只要你对密码进行哈希处理了，那么无论是技术上，还是在存储上都没有任何限制。</p>
 </li>
 </ul>
@@ -381,8 +379,7 @@ XSS 过滤器在 <a class="reference internal" href="../libraries/security.html"
 只需要这些文件能从 Web 上访问就可以了。</p>
 <p>允许你的访问者访问其他位置可能潜在的导致他们访问一些敏感数据或者执行脚本等等。</p>
 <p>如果你不允许这样做，你可以使用 .htaccess 文件来限制对这些资源的访问。</p>
-<p>CodeIgniter 在每个目录下放置了一个 index.html 文件，试图隐藏这些敏感数据，
-但是要记住的是，这对于防止一个真正的攻击者来说并不够。</p>
+<p>CodeIgniter 在每个目录下放置了一个 index.html 文件，试图隐藏这些敏感数据，但是要记住的是，这对于防止一个真正的攻击者来说并不够。</p>
 </div>
 </div>
 
@@ -445,7 +442,7 @@ XSS 过滤器在 <a class="reference internal" href="../libraries/security.html"
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -476,7 +473,7 @@ XSS 过滤器在 <a class="reference internal" href="../libraries/security.html"
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false

@@ -97,6 +97,13 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation/index.html">编写 CodeIgniter 的文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCO.html">Developer's Certificate of Origin 1.1</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="general/index.html">常规主题</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="general/urls.html">CodeIgniter URL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general/controllers.html">控制器</a></li>
@@ -207,13 +214,6 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">向 CodeIgniter 贡献你的力量</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="documentation/index.html">编写 CodeIgniter 的文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DCO.html">Developer's Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -249,7 +249,47 @@
   <div class="section" id="id1">
 <h1>变更记录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
-<h2>版本 3.0.1<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>版本 3.0.2<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>发布日期: 2015年10月8日</p>
+<ul class="simple">
+<li><strong>Security</strong><ul>
+<li>Fixed a number of XSS attack vectors in <a class="reference internal" href="libraries/security.html"><em>Security Library</em></a> method <tt class="docutils literal"><span class="pre">xss_clean()</span></tt>  (thanks to Frans Rosén from <a class="reference external" href="https://detectify.com/">Detectify</a>).</li>
+</ul>
+</li>
+<li>General Changes<ul>
+<li>Updated the <em>application/config/constants.php</em> file to check if constants aren't already defined before doing that.</li>
+<li>Changed <a class="reference internal" href="libraries/loader.html"><em>Loader Library</em></a> method <tt class="docutils literal"><span class="pre">model()</span></tt> to only apply <tt class="docutils literal"><span class="pre">ucfirst()</span></tt> and not <tt class="docutils literal"><span class="pre">strtolower()</span></tt> to the requested class name.</li>
+<li>Changed <a class="reference internal" href="libraries/config.html"><em>Config Library</em></a> methods <tt class="docutils literal"><span class="pre">base_url()</span></tt>, <tt class="docutils literal"><span class="pre">site_url()</span></tt> to allow protocol-relative URLs by passing an empty string as the protocol.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="bug-fixes-for-3-0-2">
+<h3>Bug fixes for 3.0.2<a class="headerlink" href="#bug-fixes-for-3-0-2" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>Fixed a bug (#2284) - <a class="reference internal" href="database/index.html"><em>Database</em></a> method <tt class="docutils literal"><span class="pre">protect_identifiers()</span></tt> breaks when <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> isn't enabled.</li>
+<li>Fixed a bug (#4052) - <a class="reference internal" href="general/routing.html"><em>Routing</em></a> with anonymous functions didn't work for routes that don't use regular expressions.</li>
+<li>Fixed a bug (#4056) - <a class="reference internal" href="libraries/input.html"><em>Input Library</em></a> method <tt class="docutils literal"><span class="pre">get_request_header()</span></tt> could not return a value unless <tt class="docutils literal"><span class="pre">request_headers()</span></tt> was called beforehand.</li>
+<li>Fixed a bug where the <a class="reference internal" href="database/index.html"><em>Database Class</em></a> entered an endless loop if it fails to connect with the 'sqlsrv' driver.</li>
+<li>Fixed a bug (#4065) - <a class="reference internal" href="database/index.html"><em>Database</em></a> method <tt class="docutils literal"><span class="pre">protect_identifiers()</span></tt> treats a traling space as an alias separator if the input doesn't contain ' AS '.</li>
+<li>Fixed a bug (#4066) - <a class="reference internal" href="libraries/caching.html"><em>Cache Library</em></a> couldn't fallback to a backup driver if the primary one is Memcache(d) or Redis.</li>
+<li>Fixed a bug (#4073) - <a class="reference internal" href="libraries/email.html"><em>Email Library</em></a> method <tt class="docutils literal"><span class="pre">send()</span></tt> could return TRUE in case of an actual failure when an SMTP command fails.</li>
+<li>Fixed a bug (#4086) - <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> didn't apply <em>dbprefix</em> to LIKE conditions if the pattern included spaces.</li>
+<li>Fixed a bug (#4091) - <a class="reference internal" href="libraries/caching.html"><em>Cache Library</em></a> 'file' driver could be tricked into accepting empty cache item IDs.</li>
+<li>Fixed a bug (#4093) - <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> modified string values containing 'AND', 'OR' while compiling WHERE conditions.</li>
+<li>Fixed a bug (#4096) - <a class="reference internal" href="database/query_builder.html"><em>Query Builder</em></a> didn't apply <em>dbprefix</em> when compiling BETWEEN conditions.</li>
+<li>Fixed a bug (#4105) - <a class="reference internal" href="libraries/form_validation.html"><em>Form Validation Library</em></a> didn't allow pipe characters inside &quot;bracket parameters&quot; when using a string ruleset.</li>
+<li>Fixed a bug (#4109) - <a class="reference internal" href="general/routing.html"><em>Routing</em></a> to <em>default_controller</em> didn't work when <em>enable_query_strings</em> is set to TRUE.</li>
+<li>Fixed a bug (#4044) - <a class="reference internal" href="libraries/caching.html"><em>Cache Library</em></a> 'redis' driver didn't catch <tt class="docutils literal"><span class="pre">RedisException</span></tt> that could be thrown during authentication.</li>
+<li>Fixed a bug (#4120) - <a class="reference internal" href="database/index.html"><em>Database</em></a> method <tt class="docutils literal"><span class="pre">error()</span></tt> didn't return error info when called after <tt class="docutils literal"><span class="pre">query()</span></tt> with the 'mssql' driver.</li>
+<li>Fixed a bug (#4116) - <a class="reference internal" href="libraries/pagination.html"><em>Pagination Library</em></a> set the wrong page number on the &quot;data-ci-pagination-page&quot; attribute in generated links.</li>
+<li>Fixed a bug where <a class="reference internal" href="libraries/pagination.html"><em>Pagination Library</em></a> added the 'rel=&quot;start&quot;' attribute to the first displayed link even if it's not actually linking the first page.</li>
+<li>Fixed a bug (#4137) - <a class="reference internal" href="general/errors.html"><em>Error Handling</em></a> breaks for the new <tt class="docutils literal"><span class="pre">Error</span></tt> exceptions under PHP 7.</li>
+<li>Fixed a bug (#4126) - <a class="reference internal" href="libraries/form_validation.html"><em>Form Validation Library</em></a> method <tt class="docutils literal"><span class="pre">reset_validation()</span></tt> discarded validation rules from config files.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>版本 3.0.1<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>发布日期: 2015年8月7日</p>
 <ul class="simple">
 <li>Core<ul>
@@ -328,8 +368,8 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>版本 3.0.0<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h2>版本 3.0.0<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>发布日期: 2015年3月30日</p>
 <ul class="simple">
 <li>License<ul>
@@ -1097,6 +1137,33 @@ Only entries in <tt class="docutils literal"><span class="pre">$autoload['librar
 <li>Fixed a bug (#3189) - <a class="reference internal" href="libraries/parser.html"><em>Parser Library</em></a> used double replacement on <tt class="docutils literal"><span class="pre">key-&gt;value</span></tt> pairs, exposing a potential template injection vulnerability.</li>
 <li>Fixed a bug (#3573) - <a class="reference internal" href="libraries/email.html"><em>Email Library</em></a> violated <a class="reference external" href="https://tools.ietf.org/rfc/rfc5321.txt">RFC5321</a> by sending 'localhost.localdomain' as a hostname.</li>
 <li>Fixed a bug (#3572) - <tt class="docutils literal"><span class="pre">CI_Security::_remove_evil_attributes()</span></tt> failed for large-sized inputs due to <em>pcre.backtrack_limit</em> and didn't properly match HTML tags.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-2-2-3">
+<h2>Version 2.2.3<a class="headerlink" href="#version-2-2-3" title="永久链接至标题">¶</a></h2>
+<p>Release Date: July 14, 2015</p>
+<ul class="simple">
+<li>Security<ul>
+<li>Removed a fallback to <tt class="docutils literal"><span class="pre">mysql_escape_string()</span></tt> in the 'mysql' database driver (<tt class="docutils literal"><span class="pre">escape_str()</span></tt> method) when there's no active database connection.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="version-2-2-2">
+<h2>Version 2.2.2<a class="headerlink" href="#version-2-2-2" title="永久链接至标题">¶</a></h2>
+<p>Release Date: April 15, 2015</p>
+<ul class="simple">
+<li>General Changes<ul>
+<li>Added HTTP &quot;Host&quot; header character validation to prevent cache poisoning attacks when <em>base_url</em> auto-detection is used.</li>
+<li>Added <em>FSCommand</em> and <em>seekSegmentTime</em> to the &quot;evil attributes&quot; list in <tt class="docutils literal"><span class="pre">CI_Security::xss_clean()</span></tt>.</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="bug-fixes-for-2-2-2">
+<h3>Bug fixes for 2.2.2<a class="headerlink" href="#bug-fixes-for-2-2-2" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>Fixed a bug (#3665) - <tt class="docutils literal"><span class="pre">CI_Security::entity_decode()</span></tt> triggered warnings under some circumstances.</li>
 </ul>
 </div>
 </div>
@@ -3471,7 +3538,7 @@ and fixed various typos.</li>
   <div role="contentinfo">
     <p>
         &copy; 版权所有 2014 - 2015, 不列颠哥伦比亚理工学院.
-       最后修改: 2015-10-08.
+       最后修改: 2015-10-10.
     </p>
 
     <p>以 <a href="http://www.aneasystone.com/" target="_blank">aneasystone</a> 制作的手册为基础构建</p>
@@ -3502,7 +3569,7 @@ and fixed various typos.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.0.0',
+            VERSION:'3.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  false
