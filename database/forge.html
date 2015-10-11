@@ -517,7 +517,7 @@
 <li>unsigned/true : 在字段定义中生成 &quot;UNSIGNED&quot;</li>
 <li>default/value : 在字段定义中生成一个默认值</li>
 <li>null/true : 在字段定义中生成 &quot;NULL&quot; ，如果没有这个，字段默认为 &quot;NOT NULL&quot;</li>
-<li>auto_increment/true : 在字段定义中生成自增标识，注意数据类型必须支持这个，譬如整型</li>
+<li>auto_increment/true : 在字段定义中生成自增标识，注意数据类型必须支持这个，例如整型</li>
 </ul>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">&#39;blog_id&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -602,7 +602,7 @@
 <span class="c1">// gives CREATE TABLE IF NOT EXISTS table_name</span>
 </pre></div>
 </div>
-<p>你还可以指定表的属性，譬如 MySQL 的 <tt class="docutils literal"><span class="pre">ENGINE</span></tt></p>
+<p>你还可以指定表的属性，例如 MySQL 的 <tt class="docutils literal"><span class="pre">ENGINE</span></tt></p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$attributes</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ENGINE&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;InnoDB&#39;</span><span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbforge</span><span class="o">-&gt;</span><span class="na">create_table</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">,</span> <span class="nv">$attributes</span><span class="p">);</span>
 <span class="c1">// produces: CREATE TABLE `table_name` (...) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci</span>

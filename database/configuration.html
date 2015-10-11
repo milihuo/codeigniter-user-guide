@@ -451,7 +451,7 @@
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>有些数据库驱动（例如：PDO，PostgreSQL，Oracle，ODBC）可能需要提供完整的 DSN 字符串。在这种情况下，你需要使用 'dsn' 配置参数，就好像使用该驱动的 PHP 原生扩展一样。譬如:</p>
+<p>有些数据库驱动（例如：PDO，PostgreSQL，Oracle，ODBC）可能需要提供完整的 DSN 字符串。在这种情况下，你需要使用 'dsn' 配置参数，就好像使用该驱动的 PHP 原生扩展一样。例如:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="c1">// PDO</span>
 <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;dsn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pgsql:host=localhost;port=5432;dbname=database_name&#39;</span><span class="p">;</span>
 

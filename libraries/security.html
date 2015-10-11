@@ -477,7 +477,7 @@ XSS 攻击, 这对于保证文件上传的安全非常有用。当此参数被�
 </div>
 <p>令牌（tokens）默认会在每一次提交时重新生成，或者你也可以设置成在 CSRF cookie
 的生命周期内一直有效。默认情况下令牌重新生成提供了更严格的安全机制，但可能会对
-可用性带来一定的影响，因为令牌很可能会变得失效（譬如使用浏览器的返回前进按钮、
+可用性带来一定的影响，因为令牌很可能会变得失效（例如使用浏览器的返回前进按钮、
 使用多窗口或多标签页浏览、异步调用等等）。你可以修改下面这个参数来改变这一点。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;csrf_regenerate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
 </pre></div>
@@ -549,7 +549,7 @@ XSS 攻击, 这对于保证文件上传的安全非常有用。当此参数被�
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$filename</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">security</span><span class="o">-&gt;</span><span class="na">sanitize_filename</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">input</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>如果允许用户提交相对路径，譬如 <em>file/in/some/approved/folder.txt</em> ，你可以将第二个参数 <tt class="docutils literal"><span class="pre">$relative_path</span></tt> 设置为 TRUE 。</p>
+<p>如果允许用户提交相对路径，例如 <em>file/in/some/approved/folder.txt</em> ，你可以将第二个参数 <tt class="docutils literal"><span class="pre">$relative_path</span></tt> 设置为 TRUE 。</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="nv">$filename</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">security</span><span class="o">-&gt;</span><span class="na">sanitize_filename</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">input</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">),</span> <span class="k">TRUE</span><span class="p">);</span>
 </pre></div>
 </div>

@@ -475,7 +475,7 @@ autoload 数组中。</p>
 <div class="section" id="id5">
 <h2>使用辅助函数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>一旦你想要使用的辅助函数被加载，你就可以像使用标准的 PHP 函数一样使用它们。</p>
-<p>譬如，要在你的视图文件中使用 <tt class="docutils literal"><span class="pre">anchor()</span></tt> 函数创建一个链接，你可以这样做:</p>
+<p>例如，要在你的视图文件中使用 <tt class="docutils literal"><span class="pre">anchor()</span></tt> 函数创建一个链接，你可以这样做:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;blog/comments&#39;</span><span class="p">,</span> <span class="s1">&#39;Click Here&#39;</span><span class="p">);</span><span class="cp">?&gt;</span>
 </pre></div>
 </div>
@@ -487,7 +487,7 @@ controller/method 的 URI 。</p>
 <p>为了扩展辅助函数，你需要在 <strong>application/helpers/</strong> 目录下新建一个文件，
 文件名和已存在的辅助函数文件名一样，但是要加上 <strong>MY_</strong> 前缀（这个可以配置，
 见下文）。</p>
-<p>如果你只是想往现有类中添加一些功能，譬如增加一两个方法，或者修改辅助函数中的
+<p>如果你只是想往现有类中添加一些功能，例如增加一两个方法，或者修改辅助函数中的
 某个函数，这时替换整个类感觉就有点杀鸡用牛刀了。在这种情况下，最好的方法是
 扩展类。</p>
 <div class="admonition note">
@@ -496,7 +496,7 @@ controller/method 的 URI 。</p>
 在传统编程中并不能被扩展。不过在 CodeIgniter 中，你可以向辅助函数中添加函数，
 或者使用你自己的函数替代辅助函数中的函数。</p>
 </div>
-<p>譬如，要扩展原始的 <strong>数组辅助函数</strong> ，首先你要创建一个文件 <strong>application/helpers/MY_array_helper.php</strong> ，
+<p>例如，要扩展原始的 <strong>数组辅助函数</strong> ，首先你要创建一个文件 <strong>application/helpers/MY_array_helper.php</strong> ，
 然后像下面这样添加或重写函数:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span class="c1">// any_in_array() is not in the Array Helper, so it defines a new function</span>
 <span class="k">function</span> <span class="nf">any_in_array</span><span class="p">(</span><span class="nv">$needle</span><span class="p">,</span> <span class="nv">$haystack</span><span class="p">)</span>

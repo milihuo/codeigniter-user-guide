@@ -478,12 +478,12 @@ COOKIE、URI、XML-RPC ，或者甚至是来自于 SERVER 数组，你都应该�
 <div class="section" id="xss">
 <h2>XSS 过滤<a class="headerlink" href="#xss" title="永久链接至标题">¶</a></h2>
 <p>CodeIgniter 自带有一个 XSS 过滤器，这个过滤器可以查找一些 XSS 的常用技术，
-譬如向你的数据中嵌入恶意的 JavaScript 脚本，劫持 cookie 信息或其他一些技术。
+例如向你的数据中嵌入恶意的 JavaScript 脚本，劫持 cookie 信息或其他一些技术。
 XSS 过滤器在 <a class="reference internal" href="../libraries/security.html"><em>这里</em></a> 有更详细的描述。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">XSS 过滤 <em>只应该在输出数据时使用</em> 。 对输入的数据进行过滤可能会
-在无意中对数据造成修改，譬如过滤密码中的特殊字符，这样会降低安全性，
+在无意中对数据造成修改，例如过滤密码中的特殊字符，这样会降低安全性，
 而不是提高安全性。</p>
 </div>
 </div>
@@ -514,7 +514,7 @@ XSS 过滤器在 <a class="reference internal" href="../libraries/security.html"
 <li><p class="first">绝不要使用弱哈希或已被破解的哈希算法，像 MD5 或 SHA1 。</p>
 <p>这些算法太老了，而且被证明存在缺陷，它们一开始就并不是为了保存密码而设计的。</p>
 <p>另外，绝不要自己发明算法。</p>
-<p>只使用强密码哈希算法，譬如 BCrypt ，在 PHP 自己的 <a class="reference external" href="http://php.net/password">密码哈希</a>
+<p>只使用强密码哈希算法，例如 BCrypt ，在 PHP 自己的 <a class="reference external" href="http://php.net/password">密码哈希</a>
 函数中也是使用它。</p>
 <p>即使你的 PHP 版本不是 5.5+ ，也请使用它们，CodeIgniter 为你提供了这些算法，只要你的 PHP
 版本是 5.3.7 以上都可以使用。（如果不满足这点要求，那么请升级你的 PHP）</p>
