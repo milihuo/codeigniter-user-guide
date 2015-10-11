@@ -30,7 +30,7 @@
 如果你希望在一个 CodeIgniter 下管理多个不同的应用程序，只需简单的
 将 application 目录下的所有文件放置到每个应用程序独立的子目录下即可。
 
-譬如，你要创建两个应用程序："foo" 和 "bar"，你可以像下面这样组织你的目录结构::
+例如，你要创建两个应用程序："foo" 和 "bar"，你可以像下面这样组织你的目录结构::
 
 	applications/foo/
 	applications/foo/config/
@@ -46,7 +46,7 @@
 	applications/bar/views/
 
 要选择使用某个应用程序时，你需要打开 index.php 文件然后设置 ``$application_folder``
-变量。譬如，选择使用 "foo" 这个应用，你可以这样::
+变量。例如，选择使用 "foo" 这个应用，你可以这样::
 
 	$application_folder = 'applications/foo';
 

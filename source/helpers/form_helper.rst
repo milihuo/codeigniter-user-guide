@@ -205,7 +205,7 @@
 			<input type="text" name="username" value="johndoe" id="username" maxlength="100" size="50" style="width:50%"  />
 		*/
 
-	如果你还希望能包含一些额外的数据，譬如 JavaScript ，你可以通过第三个参数传一个字符串::
+	如果你还希望能包含一些额外的数据，例如 JavaScript ，你可以通过第三个参数传一个字符串::
 
 		$js = 'onClick="some_function()"';
 		echo form_input('username', 'johndoe', $js);
@@ -527,7 +527,7 @@
 		echo form_button($data);
 		// Would produce: <button name="button" id="button" value="true" type="reset">Reset</button>
 
-	如果你还希望能包含一些额外的数据，譬如 JavaScript ，你可以通过第三个参数传一个字符串::
+	如果你还希望能包含一些额外的数据，例如 JavaScript ，你可以通过第三个参数传一个字符串::
 
 		$js = 'onClick="some_function()"';
 		echo form_button('mybutton', 'Click Me', $js);
@@ -678,7 +678,7 @@
 	:returns:	Escaped value
 	:rtype:	string
 
-	允许你在表单元素中安全的使用 HTML 和譬如引号这样的字符，而不用担心对表单造成破坏。
+	允许你在表单元素中安全的使用 HTML 和例如引号这样的字符，而不用担心对表单造成破坏。
 
 	.. note:: 如果你使用了这个页面上介绍的任何一个函数，表单的域值会被自动转义，
 		所以你无需再调用这个函数。只有在你创建自己的表单元素时需要使用它。

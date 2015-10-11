@@ -63,11 +63,11 @@ XSS 过滤
 =============
 
 CodeIgniter 自带有一个 XSS 过滤器，这个过滤器可以查找一些 XSS 的常用技术，
-譬如向你的数据中嵌入恶意的 JavaScript 脚本，劫持 cookie 信息或其他一些技术。
+例如向你的数据中嵌入恶意的 JavaScript 脚本，劫持 cookie 信息或其他一些技术。
 XSS 过滤器在 :doc:`这里 <../libraries/security>` 有更详细的描述。
 
 .. note:: XSS 过滤 *只应该在输出数据时使用* 。 对输入的数据进行过滤可能会
-	在无意中对数据造成修改，譬如过滤密码中的特殊字符，这样会降低安全性，
+	在无意中对数据造成修改，例如过滤密码中的特殊字符，这样会降低安全性，
 	而不是提高安全性。
 
 CSRF 保护
@@ -108,7 +108,7 @@ CodeIgniter 提供了对 CSRF 的保护，会在每个非 GET HTTP 请求时自�
 
    另外，绝不要自己发明算法。
 
-   只使用强密码哈希算法，譬如 BCrypt ，在 PHP 自己的 `密码哈希 <http://php.net/password>`_ 
+   只使用强密码哈希算法，例如 BCrypt ，在 PHP 自己的 `密码哈希 <http://php.net/password>`_ 
    函数中也是使用它。
 
    即使你的 PHP 版本不是 5.5+ ，也请使用它们，CodeIgniter 为你提供了这些算法，只要你的 PHP

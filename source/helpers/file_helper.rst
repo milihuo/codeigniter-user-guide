@@ -167,7 +167,7 @@
 	:returns:	Symbolic permissions string
 	:rtype:	string
 
-	将文件权限的数字格式（譬如 ``fileperms()`` 函数的返回值）转换为标准的符号格式。
+	将文件权限的数字格式（例如 ``fileperms()`` 函数的返回值）转换为标准的符号格式。
 
 	::
 
@@ -179,7 +179,7 @@
 	:returns:	Octal permissions string
 	:rtype:	string
 
-	将文件权限的数字格式（譬如 ``fileperms()`` 函数的返回值）转换为三个字符的八进制表示格式。
+	将文件权限的数字格式（例如 ``fileperms()`` 函数的返回值）转换为三个字符的八进制表示格式。
 
 	::
 

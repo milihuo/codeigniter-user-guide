@@ -120,7 +120,7 @@ jQuery 事件
    使用 jQuery 独特的选择器语法，通常是一个元素 ID 或 CSS 选择器。例如，"#notice_area" 
    会影响到 ``<div id="notice_area">`` ，"#content a.notice" 会影响到 ID 为 "content"
    的元素下的所有 class 为 "notice" 的链接。
--  "``code_to_run()``" 为你自己写的脚本，或者是一个 jQuery 动作，譬如下面所介绍的特效。
+-  "``code_to_run()``" 为你自己写的脚本，或者是一个 jQuery 动作，例如下面所介绍的特效。
 
 特效
 =======
@@ -246,7 +246,7 @@ corner()
 
 
 -  "target" 是任何有效的 jQuery 选择器。
--  "corner_style" 可选，可以设置为任何有效的样式，譬如：
+-  "corner_style" 可选，可以设置为任何有效的样式，例如：
    round、sharp、bevel、bite、dog 等。如果只想设置某个边角的样式，
    可以在样式后添加一个空格，然后使用 "tl" （左上），"tr" （右上），
    "bl" （左下），和 "br" （右下）。

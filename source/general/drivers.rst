@@ -14,7 +14,7 @@
 
 	$this->load->driver('class_name');
 
-class_name 是你想要调用的驱动器类名，譬如，你要加载名为 Some_parent 的驱动器，
+class_name 是你想要调用的驱动器类名，例如，你要加载名为 Some_parent 的驱动器，
 可以这样::
 
 	$this->load->driver('some_parent');

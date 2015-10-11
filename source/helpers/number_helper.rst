@@ -31,7 +31,7 @@
 	:rtype:	string
 
 	根据数值大小以字节的形式格式化，并添加适合的缩写单位。
-	譬如::
+	例如::
 
 		echo byte_format(456); // Returns 456 Bytes
 		echo byte_format(4567); // Returns 4.5 KB

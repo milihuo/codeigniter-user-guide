@@ -964,7 +964,7 @@ DELETE 而不是 INSERT。
 	// SELECT field1, field1 from mytable where field3 = 5;
 
 .. note:: 如果你正在使用查询构造器缓存功能，连续两次调用 ``get_compiled_select()`` 方法
-	并且不重置你的查询，这将会导致缓存被合并两次。举例来说，譬如你正在缓存 ``select()``
+	并且不重置你的查询，这将会导致缓存被合并两次。举例来说，例如你正在缓存 ``select()``
 	方法，那么会查询两个相同的字段。
 
 ***************

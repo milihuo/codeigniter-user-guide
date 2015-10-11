@@ -7,7 +7,7 @@
 
 	$this->load->library('class_name');
 
-'class_name' 是你想要调用的类库名称，譬如，要加载 :doc:`表单验证类库 
+'class_name' 是你想要调用的类库名称，例如，要加载 :doc:`表单验证类库 
 <../libraries/form_validation>`，你可以这样做::
 
 	$this->load->library('form_validation');
@@ -16,7 +16,7 @@
 
 另外，多个类库可以通过一个数组来同时加载。
 
-譬如::
+例如::
 
 	$this->load->library(array('email', 'table'));
 

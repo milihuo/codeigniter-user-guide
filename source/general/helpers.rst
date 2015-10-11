@@ -58,7 +58,7 @@ autoload 数组中。
 
 一旦你想要使用的辅助函数被加载，你就可以像使用标准的 PHP 函数一样使用它们。
 
-譬如，要在你的视图文件中使用 ``anchor()`` 函数创建一个链接，你可以这样做::
+例如，要在你的视图文件中使用 ``anchor()`` 函数创建一个链接，你可以这样做::
 
 	<?php echo anchor('blog/comments', 'Click Here');?>
 
@@ -72,7 +72,7 @@ controller/method 的 URI 。
 文件名和已存在的辅助函数文件名一样，但是要加上 **MY\_** 前缀（这个可以配置，
 见下文）。
 
-如果你只是想往现有类中添加一些功能，譬如增加一两个方法，或者修改辅助函数中的
+如果你只是想往现有类中添加一些功能，例如增加一两个方法，或者修改辅助函数中的
 某个函数，这时替换整个类感觉就有点杀鸡用牛刀了。在这种情况下，最好的方法是
 扩展类。
 
@@ -80,7 +80,7 @@ controller/method 的 URI 。
 	在传统编程中并不能被扩展。不过在 CodeIgniter 中，你可以向辅助函数中添加函数，
 	或者使用你自己的函数替代辅助函数中的函数。
 
-譬如，要扩展原始的 **数组辅助函数** ，首先你要创建一个文件 **application/helpers/MY_array_helper.php** ，
+例如，要扩展原始的 **数组辅助函数** ，首先你要创建一个文件 **application/helpers/MY_array_helper.php** ，
 然后像下面这样添加或重写函数::
 
 	// any_in_array() is not in the Array Helper, so it defines a new function

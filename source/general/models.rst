@@ -99,7 +99,7 @@
 	$this->load->model('model_name');
 
 如果你的模型位于一个子目录下，那么加载时要带上你的模型所在目录的相对路径，
-譬如，如果你的模型位于 *application/models/blog/Queries.php* ，
+例如，如果你的模型位于 *application/models/blog/Queries.php* ，
 你可以这样加载它::
 
 	$this->load->model('blog/queries');

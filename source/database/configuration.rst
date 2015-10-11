@@ -28,7 +28,7 @@ CodeIgniter 有一个配置文件用来保存数据库连接值（用户名、�
 		'failover' => array()
 	);
 
-有些数据库驱动（例如：PDO，PostgreSQL，Oracle，ODBC）可能需要提供完整的 DSN 字符串。在这种情况下，你需要使用 'dsn' 配置参数，就好像使用该驱动的 PHP 原生扩展一样。譬如::
+有些数据库驱动（例如：PDO，PostgreSQL，Oracle，ODBC）可能需要提供完整的 DSN 字符串。在这种情况下，你需要使用 'dsn' 配置参数，就好像使用该驱动的 PHP 原生扩展一样。例如::
 
 	// PDO
 	$db['default']['dsn'] = 'pgsql:host=localhost;port=5432;dbname=database_name';

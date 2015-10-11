@@ -52,7 +52,7 @@ URI 分段
 ===================
 
 在你的 **config/config.php** 文件中你可以指定一个后缀，CodeIgniter
-生成 URL 时会自动添加上它。譬如，一个像这样的 URL::
+生成 URL 时会自动添加上它。例如，一个像这样的 URL::
 
 	example.com/index.php/products/view/shoes
 
@@ -80,5 +80,5 @@ trigger 关键字来访问你的控制器和方法::
 	index.php?c=controller&m=method
 
 .. note:: 如果你使用查询字符串格式的 URL，你就必须自己手工构造 URL 而不能使用 URL 
-	辅助函数了（以及其他生成 URL 相关的库，譬如表单辅助函数），这是由于这些库只能处理
+	辅助函数了（以及其他生成 URL 相关的库，例如表单辅助函数），这是由于这些库只能处理
 	分段格式的 URL 。

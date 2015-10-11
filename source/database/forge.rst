@@ -81,7 +81,7 @@
 -  unsigned/true : 在字段定义中生成 "UNSIGNED" 
 -  default/value : 在字段定义中生成一个默认值
 -  null/true : 在字段定义中生成 "NULL" ，如果没有这个，字段默认为 "NOT NULL"
--  auto_increment/true : 在字段定义中生成自增标识，注意数据类型必须支持这个，譬如整型
+-  auto_increment/true : 在字段定义中生成自增标识，注意数据类型必须支持这个，例如整型
 
 ::
 
@@ -179,7 +179,7 @@
 	$this->dbforge->create_table('table_name', TRUE);
 	// gives CREATE TABLE IF NOT EXISTS table_name
 
-你还可以指定表的属性，譬如 MySQL 的 ``ENGINE`` ::
+你还可以指定表的属性，例如 MySQL 的 ``ENGINE`` ::
 
 	$attributes = array('ENGINE' => 'InnoDB');
 	$this->dbforge->create_table('table_name', FALSE, $attributes);

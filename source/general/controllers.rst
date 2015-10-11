@@ -122,7 +122,7 @@
 定义默认控制器
 =============================
 
-CodeIgniter 可以设置一个默认的控制器，当 URI 没有分段参数时加载，譬如当用户直接访问你网站的首页时。
+CodeIgniter 可以设置一个默认的控制器，当 URI 没有分段参数时加载，例如当用户直接访问你网站的首页时。
 打开 **application/config/routes.php** 文件，通过下面的参数指定一个默认的控制器::
 
 	$route['default_controller'] = 'blog';

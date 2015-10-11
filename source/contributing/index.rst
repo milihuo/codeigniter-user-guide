@@ -89,7 +89,7 @@ CodeIgniter 推荐使用 PHP 5.4 或更高的版本，但是同时它也对 PHP 
 
 CodeIgniter 使用了 `Git-Flow <http://nvie.com/posts/a-successful-git-branching-model/>`_ 分支模型，
 这要求所有的 pull request 应该提交到 develop 分支，develop 分支是正在开发的打算在下一版发布的分支，
-master 分支总是包含最新的稳定版并保持干净，这样可以在譬如出现紧急安全漏洞时快速的在 master 分支代码
+master 分支总是包含最新的稳定版并保持干净，这样可以在例如出现紧急安全漏洞时快速的在 master 分支代码
 上打上补丁并发布新的版本，而无需担心新加的功能会影响它。正是因为这个原因，所有的提交都应该在 develop
 分支，发送到 master 分支的提交会被自动关闭。如果你的提交中包含多处修改，请将每一个修改都放到你独立的分支中。
 

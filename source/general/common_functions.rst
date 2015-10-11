@@ -94,7 +94,7 @@ CodeIgniter 定义了一些全局的函数，你可以在任何地方使用它�
 	:param	string	$text: A custom message to set with the status code
 	:rtype:	void
 
-	用于手动设置服务器的 HTTP 状态码，譬如::
+	用于手动设置服务器的 HTTP 状态码，例如::
 
 		set_status_header(401);
 		// Sets the header as:  Unauthorized
