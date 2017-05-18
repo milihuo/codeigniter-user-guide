@@ -271,7 +271,7 @@ CodeIgniter 为你解决了这个问题，你只需要使用下面的 ``$raw_inp
 
 		**注意**
 
-		只有 name 和 value 两项是必须的，要删除 COOKIE 的话，将 expire 设置为空。
+		只有 name 和 value 两项是必须的，要删除 COOKIE 的话，将 expire 设置为空,将domain设置为你的URL,否则将无法删除cookie。
 
 		COOKIE 的过期时间是 **秒** ，将它加到当前时间上就是 COOKIE 的过期时间。
 		记住不要把它设置成时间了，只要设置成距离当前时间的秒数即可，那么在这段
