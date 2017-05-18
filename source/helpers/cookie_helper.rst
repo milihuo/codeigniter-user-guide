@@ -62,7 +62,6 @@ Cookie 辅助函数文件包含了一些帮助你处理 Cookie 的函数。
 
 	删除一条 Cookie，只需要传入 Cookie 名即可，也可以设置路径或其他参数
 	来删除特定 Cookie。
-	将domain设置为你的URL,否则将无法删除cookie
 	添加cookie时候设置domin,删除时，domain为必填项，将domain设置为你的URL,否则将无法删除cookie
 	::
 
